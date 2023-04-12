@@ -4,7 +4,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./component/auth/Login.js";
 import SignUp from "./component/auth/Signup.js";
-import Addp from "./component/auth/Addp.js";
+import Addp from "./component/doc/Addp.js";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -31,6 +31,7 @@ const firebaseconfig = {
 };
 firebase.initializeApp(firebaseconfig);
 firebase.firestore().settings({ timestampsInSnapshots: true });
+
 
 
 
