@@ -1,0 +1,59 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.Login-bg {
+  height: 100vh;
+  background: url(/src/component/auth/pp.png) no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.Login-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+.Login-text {
+  color: #1776cf;
+  text-align: right;
+}
+
+.Login-text2 {
+  color: #888888;
+  text-align: right;
+}
+
+.Login-btn {
+  background: #fff;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid transparent;
+  transition: 0.3s;
+  margin-top: 1rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.Login-btn:hover {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+@media screen and (max-width: 480px) {
+  .Login-text {
+    padding: 0 2rem;
+  }
+  .Login-bg {
+    height: 1000px;
+    background: url(/src/component/Group38.png) no-repeat;
+    background-size: 500px;
+    overflow: hidden;
+    background-position-x: -50px;
+    background-position-y: 90px;
+  }
+}
