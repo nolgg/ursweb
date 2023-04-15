@@ -1,33 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { FiCode, FiMenu, FiX } from "react-icons/fi";
 import './Header.css';
-import lg from './Group20.png';
+import lg from './Group52.png';
 import 'firebase/compat/firestore';
 import firebase from 'firebase/compat/app';
+// import {render,root} from 'react-dom'
+
 
 function Header() { 
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-  const [users, setUsers] = useState(null); // add state to store users data
-
-  useEffect(() => {
-    // fetch users data from Firestore when component mounts
-    const db = firebase.firestore();
-    const usersRef = db.collection('users').doc('your_user_id');
-    usersRef.get().then((doc) => {
-      if (doc.exists) {
-        setUsers(doc.data());
-      } else {
-        console.log('No such document!');
-      }
-    }).catch((error) => {
-      console.log('Error getting document:', error);
-    });
-  }, []);
-
+    const [click, setClick] = useState(false);
+    const [user, setUser] = useState(null);
     
-    if(users === null){
+    const handleClick = () => setClick(!click);
+    const closeMobileMenu = () => setClick(false);
+  
+    useEffect(() => {
+      // fetch user data from Firestore when component mounts
+      const db = firebase.firestore();
+      const currentUser = firebase.auth().currentUser;
+      if (currentUser) {
+        const userRef = db.collection('users').doc(currentUser.uid);
+        userRef.get().then((doc) => {
+          if (doc.exists) {
+            setUser(doc.data());
+          } else {
+            console.log('No such document!');
+          }
+        }).catch((error) => {
+          console.log('Error getting document:', error);
+        });
+      }
+    }, []);
+
+    if(user == null){
         return (
     
     
@@ -35,7 +40,7 @@ function Header() {
               <div className="container">
                 <div className="header-con z-depth-0 fixed-top">
                         <div className="logo-container"  style={{marginLeft: "-100px",marginTop: '10px'}}>
-                            <a href="Home"> <img src={lg} style={{display:'relative' ,width:'150px',}}></img></a>
+                            <a href="Home"> <img src={lg} style={{display:'relative' ,width:'180px',}}></img></a>
                         </div>
                         <ul className={click ? "menu active" : "menu"}>
                             <li className="menu-link" onClick={closeMobileMenu}>
@@ -58,7 +63,7 @@ function Header() {
             </div>
         )
          }
-   if (users.Doctor == true){
+   if (user.Doctor == true){
     return (
 
 
@@ -79,8 +84,8 @@ function Header() {
                             <a href="Overview">OVERVIEW</a>
 
                         </li>
-                        {/* <li className="menu-link" onClick={closeMobileMenu}>
-                            <link href="SignIn" >SignIn</link>
+                        {/* <li onClick={closeMobileMenu} className="btn btn-floating #ffc107 amber" style={{borderRadius:"15px"}} >
+                        {props.users.initials} <link href="/" ></link>
                             {links}
                         </li> */}
                        
@@ -130,7 +135,7 @@ function Header() {
         </div>
     )
      }
-
+    
 }
 
 export default Header;

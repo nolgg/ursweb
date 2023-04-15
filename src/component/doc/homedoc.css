@@ -1,0 +1,97 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.homedoc-bg {
+  height: 1000px;
+  background: url(/src/component/doc/55.png) no-repeat;
+  background-size: 1300px;
+  overflow: hidden;
+  background-position-x: 120px;
+  background-position-y: 90px;
+}
+.homedoc-bg1 {
+    height: 1000px;
+    background: url(/src/component/doc/56.png) no-repeat;
+    background-size: 1300px;
+    overflow: hidden;
+    background-position-x: 120px;
+    background-position-y: 0px;
+  }
+.homedoc-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+.homedoc-text {
+  color: #595959;
+  text-align: right;
+  font-size: 40px;
+  margin-top: 2px;
+}
+.homedoc-btn {
+    background: #1c85e8;
+    position: absolute;
+    height: 46px;
+    width: 190px;
+    left: 1015px;
+    top: 1950px;
+    border-radius: 15px;
+    border-color: #FFFFFF;
+    
+}    
+.homedoc-btn2 {
+  
+position: absolute;
+width: 877px;
+height: 127px;
+left: 460px;
+top: 4761px;
+
+background: #F5F5F7;
+box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+border-radius: 63.5px;
+  
+}    
+
+.text1 {
+
+    position: absolute;
+    width: 499px;
+    height: 153px;
+    left: 100px;
+    top: 2000px;
+    
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 125%;
+    /* or 50px */
+    
+    
+    color: #1776CF;
+
+
+}
+.homedoc-btn:hover {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+@media screen and (max-width: 480px) {
+  .homedoc-text {
+    padding: 0 2rem;
+  }
+  .homedoc-bg {
+    height: 1000px;
+    background: url(/src/component/doc/55.png) no-repeat;
+    background-size: 500px;
+    overflow: hidden;
+    background-position-x: -50px;
+    background-position-y: 90px;
+  }
+}

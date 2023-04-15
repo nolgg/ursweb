@@ -1,0 +1,122 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.homept-bg {
+  height: 1000px;
+  background: url(/src/component/PATIENT/59.png) no-repeat;
+  background-size: 1300px;
+  overflow: hidden;
+  background-position-x: 120px;
+  background-position-y: 90px;
+}
+.homept-bg1 {
+    height: 1000px;
+    background: url(/src/component/PATIENT/60.png) no-repeat;
+    background-size: 1300px;
+    overflow: hidden;
+    background-position-x: 120px;
+    background-position-y: 0px;
+  }
+  .homept-bg2 {
+    height: 1000px;
+    background: url(/src/component/PATIENT/61.png) no-repeat;
+    background-size: 1300px;
+    overflow: hidden;
+    background-position-x: 100px;
+    background-position-y: 0px;
+  }
+  .homept-bg3 {
+    height: 1000px;
+    background: url(/src/component/PATIENT/62.png) no-repeat;
+    background-size: 1300px;
+    overflow: hidden;
+    background-position-x: 100px;
+    background-position-y: 0px;
+  }
+  .homept-bg4 {
+    height: 1000px;
+    background-color:#1776CF;
+    background-size: 1300px;
+    overflow: hidden;
+    background-position-x: 100px;
+    background-position-y: 0px;
+  }
+.homept-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+}
+.homept-text {
+  color: #595959;
+  text-align: right;
+  font-size: 40px;
+  margin-top: 2px;
+}
+.homept-btn {
+    background: #ffffff00;
+    box-sizing: border-box;
+    position: absolute;
+    width: 262px;
+    height: 88px;
+    left: 640px;
+    top: 1500px;
+    border: 5px solid #1776CF;
+    border-radius: 44px;
+  
+    
+}    
+.homept-btn2 {
+  position: absolute;
+  width: 877px;
+  height: 127px;
+  left: 300px;
+  top: 4400px;
+  background-color: #F5F5F7;
+
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 63.5px;
+  
+}    
+.ho
+.homept-text1 {
+
+    position: absolute;
+    width: 499px;
+    height: 153px;
+    left: 100px;
+    top: 2100px;
+    
+    font-family: 'Prompt';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 125%;
+    /* or 50px */
+    
+    
+    color: #1776CF;
+
+
+}
+.homept-btn:hover {
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+@media screen and (max-width: 480px) {
+  .homept-text {
+    padding: 0 2rem;
+  }
+  .homept-bg {
+    height: 1000px;
+    background: url(/src/component/PATIENT/59.png) no-repeat;
+    background-size: 500px;
+    overflow: hidden;
+    background-position-x: -50px;
+    background-position-y: 90px;
+  }
+}

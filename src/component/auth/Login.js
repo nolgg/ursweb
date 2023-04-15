@@ -18,7 +18,7 @@ function Login() {
 
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
-      navigate('/');
+      navigate('/docter');
     } catch (error) {
       console.error(error);
       if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {

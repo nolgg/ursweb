@@ -5,9 +5,16 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./component/auth/Login.js";
 import SignUp from "./component/auth/Signup.js";
 import Addp from "./component/doc/Addp.js";
+import Homedoc from "./component/doc/homedoc.js";
+import resultdoc from "./component/doc/resultdoc.js";
+import Homept from "./component/PATIENT/homept";
+import Headerpt from "./component/PATIENT/Headerpt.js";
+
+
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import HeaderDoc from "./component/doc/HeaderDoc.js";
 
 
 // import SignIn from './component/auth/Ssystem.js';
@@ -42,7 +49,10 @@ function App() {
         <Route path="/signin" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<><Header /><Home /></>} />
-        <Route path="/create" element={<><Addp /><Home /></>} />
+        <Route path="/create" element={<><HeaderDoc/><Addp /></>} />
+        <Route path="/Docter" element={<> <HeaderDoc/><Homedoc/></>} />
+        <Route path="/PATIENT" element={<> <Headerpt/><Homept/></>} />
+        {/* <Route path="/Result" element={<><HeaderDoc/><Resultdoc/></>} /> */}
       </Routes>
     </BrowserRouter>
   );

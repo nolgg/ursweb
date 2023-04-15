@@ -3,8 +3,54 @@
     padding: 20px;
     background-color: #f7f7f7;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+   
+
+
   }
-  
+  .left{
+    position: absolute;
+width: 245px;
+height: 49px;
+left: 250px;
+top: 850px;
+
+  }
+  .center{
+    position: absolute;
+    width: 1013px;
+    height: 927px;
+    left: 250px;
+    top: 200px;
+    }
+  .textADD{
+   
+    font-family: 'Lexend';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 88px;
+    color: #1D1D1F;}
+
+    .textADD1{
+   
+      position: absolute;
+      width: 537px;
+      height: 69px;
+      left: 200px;
+      top: 80px;
+      
+      font-family: 'Lexend';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 70px;
+      line-height: 88px;
+      color: #1776CF;
+    }
+    .input{
+    
+      background: #FFFFFF;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.14);
+      border-radius: 35px;}
   .medical-form label {
     font-size: 16px;
     font-weight: bold;
@@ -20,13 +66,13 @@
     font-size: 16px;
   }
   
-  .medical-form button[type="submit"] {
+  .medical-form button [type="submit"] {
     padding: 10px 20px;
     background-color: #0080ff;
-    border: none;
+
     color: #fff;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
   }
   
