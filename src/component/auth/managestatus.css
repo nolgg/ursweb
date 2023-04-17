@@ -1,0 +1,33 @@
+.manage-user-status-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .manage-user-status-heading {
+    margin-bottom: 10px;
+  }
+  
+  .manage-user-status-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .manage-user-status-item {
+    margin-bottom: 10px;
+  }
+  
+  .manage-user-status-name {
+    font-weight: bold;
+  }
+  
+  .manage-user-status-email {
+    color: #999;
+  }
+  
+  .manage-user-status-doctor-status {
+    margin-left: 10px;
+    color: #666
+  }

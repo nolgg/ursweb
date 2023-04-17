@@ -10,9 +10,11 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [LastName, setLastName] = useState('');
   const [FirstName, setFirstName] = useState('');
+  const [IDcard, setIDcard] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
   const firestore = firebase.firestore();
+  
 
   const handleSignUp = async (e) => {
       e.preventDefault();
@@ -28,9 +30,10 @@ const SignUp = () => {
         await firestore.collection('users').doc(userUid).set({
           firstName: FirstName,
           lastName: LastName,
+          IDcard: IDcard,
           initials: FirstName[0] + LastName[0],
         });
-        navigate('/create'); // replace this with the URL to navigate to after successful signup
+        navigate('/PATIENT'); // replace this with the URL to navigate to after successful signup
       } catch (error) {
         console.error(error);
       }
@@ -54,11 +57,17 @@ const SignUp = () => {
          <label htmlFor='LastName'>Last Name</label>
         </div>
            </div>
+           <div class='input-field col s12 '>
+              <input id='IDcard' type='number' class='validate' onChange={(e) => setIDcard(e.target.value)} />
+              <label for='IDcard'>IDcard</label>
+              <span class='helper-text' data-error='wrong' data-success='right'></span>
+            </div>
           <div class='input-field col s12 '>
               <input id='email' type='email' class='validate' onChange={(e) => setEmail(e.target.value)} />
               <label for='email'>Email</label>
               <span class='helper-text' data-error='wrong' data-success='right'></span>
             </div>
+            
           <div class='input-field col s12'>
             <input id='password' type='password' class='validate' onChange={(e) => setPassword(e.target.value)} />
             <label for='password'>Password</label>

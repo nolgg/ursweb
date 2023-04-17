@@ -30,7 +30,7 @@ const closeMobileMenu = () => setClick(false);
                   <h3 className="homept-bg4">
                   <button className="homept-btn2" >
                   <Link  to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.9831411,14z/data=!3m1!4b1?hl=th"  >โรงพยาบาลที่ใกล้เคียง</Link>
-                  <img src={sr} style={{ width:'60px',marginLeft:'60px'}}></img>
+                  
                   <br></br>
                   <Link  style={{ fontSize:'30px'}}to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.9831411,14z/data=!3m1!4b1?hl=th"  >Click Me</Link>
                  

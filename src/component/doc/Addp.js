@@ -64,8 +64,8 @@ const Addp = () => {
       .set({
         ...inputValues,
         userId: userId, 
-        firstname: firstName,
-        lastname: lastName,
+        firstnamedoc: firstName,
+        lastnamedoc: lastName,
         imageUrls: imageUrls,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       });
@@ -84,7 +84,8 @@ const Addp = () => {
       WBC1: '0',
       RBC: '0',
       Sq: '0',
-      Ai: "1"
+      Ai: "1",
+      IDcard: '',
     });
     setSelectedImages([]);
   };
@@ -93,7 +94,7 @@ const Addp = () => {
     const { name, value } = e.target;
     setInputValues({
       ...inputValues,
-      [name]: name === 'age' || name === 'WBC' || name === 'gravity' || name === 'ph' || name === 'glu' || name === 'calox1' || name === 'WBC1' || name === 'RBC' ? parseInt(value) : value,
+      [name]: name === 'age' || name === 'WBC' || name === 'gravity' || name === 'ph' || name === 'glu' || name === 'calox1' || name === 'WBC1' || name === 'RBC' || name === 'IDcard' ? parseInt(value) : value,
     });
   };
 
@@ -108,6 +109,17 @@ const Addp = () => {
       <h1 className='textADD'>ADD</h1>
       <h1 className='textADD1'>PATIENT</h1>
       <div  className="center">
+      <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
+        <label htmlFor="IDcard">IDcard</label>
+        <input 
+        
+          id="IDcard"
+          type="number"
+          name="IDcard"
+          value={inputValues.IDcard}
+          onChange={handleInputChange}
+        />
+      </div>
       <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
         <label htmlFor="firstName">First Name:</label>
         <input 
@@ -154,7 +166,7 @@ const Addp = () => {
   <label htmlFor="blood">Blood:</label>
   <input
     id="blood"
-    type="text"
+    type="number"
     name="blood"
     value={inputValues.blood}
     onChange={handleInputChange}
@@ -194,14 +206,17 @@ const Addp = () => {
   <label htmlFor="ketone">Ketones:</label>
   <input
     id="ketone"
-    type="text"
+    type="number"
     name="ketone"
     value={inputValues.ketone}
     onChange={handleInputChange}
   />
 </div>
 </div>
+
 <div className='left' >
+<br></br>
+<br></br>
   <label htmlFor="images">Images:</label>
   <br></br>
   <input 
@@ -215,8 +230,8 @@ const Addp = () => {
     handleImageChange(e);
   }}
   />
-<br></br>
-<br></br>
+  <br></br>
+   <br></br>
 <button  type="submit"  
 style=
 {{borderRadius:"10px",backgroundColor:" #1776CF", width:"100px",color:"white"

@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import 'firebase/compat/app'
 import Swal from 'sweetalert2';
 import bg from './pp.png';
 import lg from './22.png';
 import './Login.css';
+import { AuthContext } from './../Atuh.js';
+import firebase from '../../fbConfig.js';
+
+
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { setCurrentUser } = useContext(AuthContext);
+  const auth = firebase.auth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      navigate('/docter');
+      await auth.signInWithEmailAndPassword(email, password);
+      setCurrentUser(auth.currentUser);
+      navigate('Doctor');
     } catch (error) {
       console.error(error);
       if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
@@ -75,9 +82,8 @@ function Login() {
               Login
             </button>
           </form>
-          <div className=' red-text'>{/* { authError ? <p>{authError}</p> : null } */}</div>
           <div className='text' style={{ fontSize: '12px', marginTop: '25px', color: 'gray' }}>
-            DON’T HAVE ACCOUNT?<a href='/signup'>Sign up Now</a>
+            DON’T HAVE ACCOUNT?<a href='/signup'>Signup Now</a>
           </div>
         </div>
       </div>
