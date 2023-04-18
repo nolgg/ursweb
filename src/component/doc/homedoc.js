@@ -16,7 +16,7 @@ function Homedoc() {
 const handleClick = () => setClick(!click);
 const closeMobileMenu = () => setClick(false);
     return (
-           <div style={{height:"280vh"}}>
+           <div className="divmain">
             <h1 className="homedoc-bg" ></h1>
                     <h1 className="homedoc-bg1"></h1>
                       <button className="homedoc-btn" href="#" 

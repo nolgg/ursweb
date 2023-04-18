@@ -25,7 +25,7 @@ function Login() {
     try {
       await auth.signInWithEmailAndPassword(email, password);
       setCurrentUser(auth.currentUser);
-      navigate('/Doctor');
+      navigate('/');
     } catch (error) {
       console.error(error);
       if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {

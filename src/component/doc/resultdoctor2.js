@@ -104,7 +104,7 @@ const Result2 = () => {
             <h2>{selectedProject.firstName}  {selectedProject.lastName}</h2>
 
             <h3>
-              {selectedProject.Result} %
+              {selectedProject.result} %
             </h3>
 
         {/* <h4>{project.result} %</h4> */}

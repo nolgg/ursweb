@@ -6,34 +6,41 @@
 .homept-bg {
   height: 1000px;
   background: url(/src/component/PATIENT/74.png) no-repeat;
-  background-size: 1300px;
+  background-size: 180vh;
   overflow: hidden;
-  background-position-x: 120px;
-  background-position-y: 90px;
+  background-position-x: 15vh;
+  background-position-y: 9vh;
 }
 .homept-bg1 {
     height: 1000px;
+    margin-top: -35vh;
     background: url(/src/component/PATIENT/60.png) no-repeat;
-    background-size: 1300px;
+    background-size: 180vh;
     overflow: hidden;
-    background-position-x: 120px;
-    margin-top: -400px;
+    background-position-x: 15vh;
+    background-position-y: 0vh;
+    border-style: dotted;
+
   }
   .homept-bg2 {
     height: 1000px;
+    margin-top: 0vh;
     background: url(/src/component/PATIENT/61.png) no-repeat;
-    background-size: 1300px;
+    background-size: 180vh;
     overflow: hidden;
-    background-position-x: 100px;
-    background-position-y: 0px;
+    background-position-x: 15vh;
+    background-position-y: 0vh;
+    border-style: dotted;
   }
   .homept-bg3 {
     height: 1000px;
+    margin-top: -35vh;
     background: url(/src/component/PATIENT/68.png) no-repeat;
-    background-size: 1300px;
+    background-size: 180vh;
     overflow: hidden;
-    background-position-x: 100px;
-    margin-top: -400px;
+    background-position-x: 12vh;
+    background-position-y: 0vh;
+    border-style: dotted;
   }
   .homept-bg4 {
     height: 500px;
@@ -67,9 +74,12 @@
     border: 5px solid #1776CF;
     border-radius: 44px;
     box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
-  border-radius: 63.5px;
+   border-radius: 63.5px;
+   margin-top: 17vh;
+   margin-left: 20vh;
+ 
   
-  
+
     
 }    
 .homept-btn3 {
@@ -95,7 +105,7 @@
   border-radius: 63.5px;
   
 }   
-.ho
+
 .homept-text1 {
 
     position: absolute;
@@ -130,6 +140,13 @@
   align-content: center;
   transition: 0.5s ease;
 }
+
+.h3dc{
+  align-items: center;
+  border-style: dotted;
+  padding-left: 14vh;
+}
+
 
 @media screen and (max-width: 480px) {
   .homept-text {

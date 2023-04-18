@@ -1,3 +1,8 @@
+.maindiv{
+  height: max-content;
+}
+
+
 .container {
   max-width: 1500px;
   height: 2000px;
@@ -5,7 +10,7 @@
 }
 
 .homedoc-bg {
-  height: 1000px;
+  height: 100vh;
   background: url(/src/component/doc/75.png) no-repeat;
   background-size: 1300px;
   overflow: hidden;
@@ -20,14 +25,13 @@
     background-size: 1300px;
     overflow: hidden;
     background-position-x: center;
-    margin-top: -300px;
     align-items: center;
-    
+    padding-top: 150vh;
     
   }
 
   .homedoc-bg2 {
-    height: 140vh;
+    height: 200vh;
     background: url(/src/component/doc/67.png) no-repeat ;
     background-size: 1300px;
     overflow: hidden;
@@ -50,14 +54,14 @@
 .homedoc-btn {
     background: #1a87ed;
     position: absolute;
-    height: 5vh;
-    width: 20vh;
+    height: 60px;
+    width: 270px;
     left: 100vh;
     top: 170vh;
     border-radius: 2vh;
     border-color: #FFFFFF;
-    margin-top: 5vh;
-    margin-left: 8vh;
+    margin-top: 65vh;
+    margin-left: 30vh;
   
     
 }    
