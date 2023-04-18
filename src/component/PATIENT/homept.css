@@ -5,7 +5,7 @@
 
 .homept-bg {
   height: 1000px;
-  background: url(/src/component/PATIENT/59.png) no-repeat;
+  background: url(/src/component/PATIENT/74.png) no-repeat;
   background-size: 1300px;
   overflow: hidden;
   background-position-x: 120px;
@@ -17,7 +17,7 @@
     background-size: 1300px;
     overflow: hidden;
     background-position-x: 120px;
-    background-position-y: 0px;
+    margin-top: -400px;
   }
   .homept-bg2 {
     height: 1000px;
@@ -29,20 +29,21 @@
   }
   .homept-bg3 {
     height: 1000px;
-    background: url(/src/component/PATIENT/62.png) no-repeat;
+    background: url(/src/component/PATIENT/68.png) no-repeat;
     background-size: 1300px;
     overflow: hidden;
     background-position-x: 100px;
-    background-position-y: 0px;
+    margin-top: -400px;
   }
   .homept-bg4 {
-    height: 1000px;
+    height: 500px;
     background-color:#1776CF;
     background-size: 1300px;
     overflow: hidden;
     background-position-x: 100px;
-    background-position-y: 0px;
+    margin-top: 400px;
   }
+ 
 .homept-con {
   display: flex;
   align-items: center;
@@ -62,24 +63,38 @@
     width: 262px;
     height: 88px;
     left: 640px;
-    top: 1500px;
+    top: 1050px;
     border: 5px solid #1776CF;
     border-radius: 44px;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 63.5px;
+  
   
     
+}    
+.homept-btn3 {
+  position: absolute;
+  background: url(/src/component/PATIENT/25.png) no-repeat;
+  width: 50%;
+  height: 55%;
+  left: 350px;
+  top: 3500px;
+  background-color: #F5F5F7;
+
+
 }    
 .homept-btn2 {
   position: absolute;
   width: 877px;
   height: 127px;
   left: 300px;
-  top: 4400px;
+  top: 3300px;
   background-color: #F5F5F7;
-
+  margin-top: -400px;
   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
   border-radius: 63.5px;
   
-}    
+}   
 .ho
 .homept-text1 {
 
@@ -105,6 +120,15 @@
   border: 2px solid #fff;
   background: transparent;
   color: #fff;
+}
+.homept-active {
+  background: #ffffff;
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+  padding-left: 0;
+  align-content: center;
+  transition: 0.5s ease;
 }
 
 @media screen and (max-width: 480px) {

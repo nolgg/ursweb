@@ -105,10 +105,12 @@ const Addp = () => {
 
   return (
 
-    <form  onSubmit={handleSubmit}>
-      <h1 className='textADD'>ADD</h1>
-      <h1 className='textADD1'>PATIENT</h1>
-      <div  className="center">
+    <form  className="formhigh" onSubmit={handleSubmit}>
+      
+      <h1 className='textADD'>เพิ่ม</h1>
+      <h1 className='textADD1' >ผู้เข้ารับการตรวจ</h1>
+     
+      <div  >
       <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
         <label htmlFor="IDcard">IDcard</label>
         <input 
@@ -153,7 +155,7 @@ const Addp = () => {
        </div>
 
 <div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
-  <label htmlFor="WBC">WBC:</label>
+  <label htmlFor="WBC">* WBC ( 0 - 500 ) :</label>
   <input
     id="WBC"
     type="number"
@@ -163,7 +165,7 @@ const Addp = () => {
   />
 </div>
 <div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
-  <label htmlFor="blood">Blood:</label>
+  <label htmlFor="blood">* Blood ( 0 - 200 ) :</label>
   <input
     id="blood"
     type="number"
@@ -173,7 +175,7 @@ const Addp = () => {
   />
 </div>
 <div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
-  <label htmlFor="gravity">Gravity:</label>
+  <label htmlFor="gravity">* Specific gravity of urine ( 1 - 1.030 ) : </label>
   <input
     id="gravity"
     type="number"
@@ -183,7 +185,7 @@ const Addp = () => {
   />
 </div>
 <div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
-  <label htmlFor="ph">pH:</label>
+  <label htmlFor="ph">* pH of urine ( 5.0 - 8.5 ) :</label>
   <input
     id="ph"
     type="number"
@@ -193,7 +195,7 @@ const Addp = () => {
   />
 </div>
 <div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
-  <label htmlFor="glu">Glucose:</label>
+  <label htmlFor="glu">* Glucose of urine ( 0 - 110 ) :</label>
   <input
     id="glu"
     type="number"
@@ -203,7 +205,7 @@ const Addp = () => {
   />
 </div>
 <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
-  <label htmlFor="ketone">Ketones:</label>
+  <label htmlFor="ketone">* Ketones of urine ( 0 - 16 ) :</label>
   <input
     id="ketone"
     type="number"
@@ -214,30 +216,35 @@ const Addp = () => {
 </div>
 </div>
 
+<p >** Images ( 15 ภาพที่ได้จากกล้องจุลทรรศ์ ):</p>
 <div className='left' >
-<br></br>
-<br></br>
-  <label htmlFor="images">Images:</label>
-  <br></br>
-  <input 
-
-  id="images"
-  type="file"
-  name="images"
-  accept="image/*"
-  multiple={true}
-  onChange={(e) => {
-    handleImageChange(e);
-  }}
-  />
-  <br></br>
-   <br></br>
-<button  type="submit"  
-style=
-{{borderRadius:"10px",backgroundColor:" #1776CF", width:"100px",color:"white"
-}}
- >Submit</button>
+<p style={{textAlign:"Right",width:"400px"}}>อัปโหลดรูปภาพที่นี่:</p>
+<div className='inputimage' style={{textAlign: "center", border: "2px dotted #1776CF", padding: "20px",width: "600px",height:"400px",marginRight: "-1000px"}}>
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
+        <input 
+            id="images"
+            type="file"
+            name="images"
+            accept="image/*"
+            multiple={true}
+            onChange={(e) => handleImageChange(e)}
+            style={{display: "none"}}
+        />
+        <label htmlFor="images" style={{cursor: "pointer"}}>
+            <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <i className="fas fa-cloud-upload-alt fa-3x" style={{color: "#1776CF"}}></i>
+                <p style={{color: "#1776CF"}}>Drag and drop files or click to select files</p>
+            </div>
+            </label>
+    </div>
 </div>
+<br></br>
+<button type="submit" style={{borderRadius:"10px", backgroundColor: "#1776CF", width: "100px", color: "white"}}>
+    Submit
+</button>
+
+ </div>
+
 
 </form>
 

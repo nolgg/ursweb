@@ -25,7 +25,7 @@ function Login() {
     try {
       await auth.signInWithEmailAndPassword(email, password);
       setCurrentUser(auth.currentUser);
-      navigate('Doctor');
+      navigate('/Doctor');
     } catch (error) {
       console.error(error);
       if (error.code === "auth/user-not-found" || error.code === "auth/wrong-password") {
@@ -48,10 +48,17 @@ function Login() {
     <body className='Login-bg'>
       <div className='right'>
         <div className='container'>
-          <h4 className='Login-text' style={{ fontSize: '40px', marginTop: '250px', marginRight: '475px' }}>
-            Welcome{' '}
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+          <h4 className='Login-text' style={{ fontSize: '40px', marginTop: '25%', marginRight: '500px' }}>
+            Welcome
           </h4>
-          <h5 className='Login-text' style={{ fontSize: '15px', marginRight: '390px' }}>
+          <h5 className='Login-text' style={{ fontSize: '15px', marginRight: '470px' ,width:'10%'}}>
             Sign In
           </h5>
           <form onSubmit={handleLogin} className='Login-text2' style={{ marginRight: '225px' }}>
@@ -77,7 +84,7 @@ function Login() {
             <button
               type='submit'
               className='btn btn blue lighten-1 z-depth-1'
-              style={{ marginTop: '15px', color: 'white', borderRadius: '20px' }}
+              style={{ marginTop: '15px', color: 'white', borderRadius: '20px',marginRight: '215px' }}
             >
               Login
             </button>

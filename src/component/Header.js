@@ -5,7 +5,9 @@ import lg from './Group20.png'
 import { AuthContext } from './Atuh';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-
+import Headerp from './PATIENT/Headerpt';
+import HeaderDoc from './doc/HeaderDoc';
+import Swal from 'sweetalert2';
 
 
 function Header() { 
@@ -21,10 +23,11 @@ function Header() {
   useEffect(() => {
     if (currentUser) {
       const userId = currentUser.uid;
-      db.collection('user').doc(userId).get()
+      db.collection('users').doc(userId).get()
         .then((doc) => {
           if (doc.exists) {
-            setIsDoctor(doc.data().doctorStatus);
+            console.log(doc.data()); // log the data to check if the doctorstatus field is set correctly
+            setIsDoctor(doc.data().doctorstatus);
             setUserInitials(`${doc.data().firstName.charAt(0)}${doc.data().lastName.charAt(0)}`);
           } else {
             console.log('User not found');
@@ -40,72 +43,11 @@ function Header() {
 
   if (isDoctor) {
     return (
-      <div className="header" style={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}}>
-        <div className="container">
-          <div className="header-con z-depth-0 fixed-top">
-            <div className="logo-container"  style={{marginLeft: "-100px",marginTop: '10px'}}>
-              <a href="Home"> <img src={lg} style={{display:'relative' ,width:'150px',}}></img></a>
-            </div>
-            <ul className={click ? "menu active" : "menu"}>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="/create">ADD PATIENT</a>
-              </li>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="#">PATIENT</a>
-              </li>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="Signup">SING UP</a>
-              </li>
-            </ul>
-            <div className="user-profile-preview">
-              {userInitials}
-            </div>
-            <div className="mobile-menu" onClick={handleClick}>
-              {click ? (
-                <FiX />
-              ) : (
-                <FiMenu />
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeaderDoc />
     );
   } else {
     return (
-        <div className="header" style={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}}>
-        <div className="container">
-          <div className="header-con z-depth-0 fixed-top">
-            <div className="logo-container"  style={{marginLeft: "-100px",marginTop: '10px'}}>
-              <a href="Home"> <img src={lg} style={{display:'relative' ,width:'150px',}}></img></a>
-            </div>
-            <ul className={click ? "menu active" : "menu"}>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="/create">ADD PATIENT</a>
-              </li>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="#">PATIENT</a>
-              </li>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="Signup">SIGN UP</a>
-              </li>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="Signin">SIGN IN</a>
-              </li>
-            </ul>
-            <div className="user-profile-preview">
-              {userInitials}
-            </div>
-            <div className="mobile-menu" onClick={handleClick}>
-              {click ? (
-                <FiX />
-              ) : (
-                <FiMenu />
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+      <Headerp />
     );
   }
 }

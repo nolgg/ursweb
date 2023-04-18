@@ -30,10 +30,10 @@ const SignUp = () => {
         await firestore.collection('users').doc(userUid).set({
           firstName: FirstName,
           lastName: LastName,
-          IDcard: IDcard,
+          IDcard: parseInt(IDcard),
           initials: FirstName[0] + LastName[0],
         });
-        navigate('/PATIENT'); // replace this with the URL to navigate to after successful signup
+        console.log("Login succec"); // replace this with the URL to navigate to after successful signup
       } catch (error) {
         console.error(error);
       }
@@ -43,7 +43,11 @@ const SignUp = () => {
   return (
     <body className='SignUp-bg'>
       <div className='right'><br></br>
-        <h4 className='Login-text' style={{ fontSize: '40px', marginTop: '250px', marginRight: '375px' }}>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+        <h4 className='Login-text' style={{ fontSize: '40px', marginTop: '250px', marginRight: '475px' }}>
           Welcome
         </h4>
         <form onSubmit={handleSignUp}>
@@ -83,7 +87,14 @@ const SignUp = () => {
             <label for='confirmPassword'>Confirm Password</label>
           </div>
 
-          <button type='submit'>Sign Up</button>
+          <button type='submit'className='btn btn blue lighten-1 z-depth-1' style={{ marginTop: '15px', color: 'white', borderRadius: '20px',marginRight: '215px',background:'' }}>
+            
+            <a href='/signin'>Sign Up</a>
+            
+            </button>
+          <div className='text' style={{ fontSize: '12px', marginTop: '25px', color: 'gray' }}>
+          ALREADY HAVE AN ACCOUNT?   <a href='/signin'>  Log In </a>
+          </div>
         </form>
       </div>
     </body>

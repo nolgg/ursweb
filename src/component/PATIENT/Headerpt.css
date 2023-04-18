@@ -32,6 +32,54 @@
 .mobile-menu {
     display: none;
 }
+.menu-link{
+    padding-top: 30px;
+   
+    width: 150px;
+    height: 80px;
+    text-align: center;
+    border-width: 100px;
+   
+}
+
+.btn-floating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+
+    margin-top: 15px;
+    
+  }
+  
+  .btn-floating:hover {
+    background-color: #ffffff;
+  }
+  
+  .btn-floating a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .btn-floating a:hover {
+    text-decoration: underline;
+  }
+
+
+.menu-link:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
 
 @media screen and (max-width: 480px) {
     .mobile-menu {
@@ -72,6 +120,7 @@
         justify-content: center;
         height: 10vw;
         padding: 10px 0;
+        
     }
     .logo-container{
         margin-top: 0px;

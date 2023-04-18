@@ -11,24 +11,22 @@ import lg from '../Group52.png';
 // }
 
 
-function homedoc() {
+function Homedoc() {
     const [click, setClick] = useState(false);
 const handleClick = () => setClick(!click);
 const closeMobileMenu = () => setClick(false);
     return (
-           <div>
+           <div style={{height:"280vh"}}>
             <h1 className="homedoc-bg" ></h1>
                     <h1 className="homedoc-bg1"></h1>
-                      <button className="homedoc-btn" href="#"  style={{
-                      color: "white"
-                    }}
-                  >CONTACT US </button>
-                  <h2 className="text1">1.นำสตริปที่ได้จากการตรวจปัสสาวะเข้าเครื่องอ่านแถบทดสอบของ URS
-                 </h2>
+                      <button className="homedoc-btn" href="#" 
+                  ><a>CONTACT US</a> </button>
+                  <h1 className="homedoc-bg2">
+                 </h1>
                  
            </div>
        
     )
 }
 
-export default homedoc
+export default Homedoc;
