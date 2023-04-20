@@ -209,17 +209,15 @@ const Resultpatient = () => {
             <br></br>
             <br></br>
             <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
+          
             <button className="font back-button" onClick={handleBackClick}>
               Back to List
             </button>
             {/* <p className="center"style={{fontSize: '40px',color: '#1776CF'}}>
-          บทความที่เกี่ยวข้อง</p>
-          <div className="font h3da"> */}
+          บทความที่เกี่ยวข้อง</p> */}
+          {/* <div className="font h3da"> 
         
-        {/* <div class="row row-cols-5 ">      
+        <div class="row row-cols-5 ">      
       
         <div class="col">
           <a href="#comehere">
@@ -237,15 +235,12 @@ const Resultpatient = () => {
         </div>
       
       
-          </div> */}
-       {/* </div> */}
+          </div> 
+        </div> */}
           </div>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
+          
+        
+          
         
           <h3 >
                   
