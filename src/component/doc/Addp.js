@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Router, Switch, Route, Redirect, Link } from "react-router-dom";
+import { Router, Switch, Route, Redirect, Link, useHref } from "react-router-dom";
 //import { firebase } from "firebase/firestore"
 import  firebase  from 'firebase/compat/app';
 import "./Addp.css"
 import 'firebase/compat/storage';
+
+
+
 
 
 
@@ -25,6 +28,7 @@ const Addp = () => {
     Ai: "1"
   });
 
+
   const [selectedImages, setSelectedImages] = useState([]);
 
   const getUserId = () => {
@@ -39,87 +43,146 @@ const Addp = () => {
       throw new Error('User is not authenticated');
     }
   };
+
+
   
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const db = firebase.firestore();
-    const randomId = db.collection('projects').doc().id;
-    const storageRef = firebase.storage().ref();
-    const userId = getUserId();
-    const userRef = db.collection('users').doc(userId);
-    const userDoc = await userRef.get();
-    const firstName = userDoc.data().firstName;
-    const lastName = userDoc.data().lastName;
+
+
+
   
-    const imageUrls = [];
-    for (const image of selectedImages) {
-      const imageRef = storageRef.child(`${randomId}/${image.name}`);
-      await imageRef.put(image);
-      const imageUrl = await imageRef.getDownloadURL();
-      imageUrls.push(imageUrl);
-    }
-  
-    db.collection('projects')
-      .doc(randomId)
-      .set({
-        ...inputValues,
-        userId: userId, 
-        firstnamedoc: firstName,
-        lastnamedoc: lastName,
-        imageUrls: imageUrls,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      });
-  
-    setInputValues({
-      firstName: '',
-      lastName: '',
-      age: '',
-      WBC: '',
-      blood: '',
-      gravity: '',
-      ph: '',
-      glu: '',
-      ketone: '',
-      calox1: '0',
-      WBC1: '0',
-      RBC: '0',
-      Sq: '0',
-      Ai: "1",
-      IDcard: '',
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const db = firebase.firestore();
+  const randomId = db.collection('projects').doc().id;
+  const storageRef = firebase.storage().ref();
+  const userId = getUserId();
+  const userRef = db.collection('users').doc(userId);
+  const userDoc = await userRef.get();
+  const firstName = userDoc.data().firstName;
+  const lastName = userDoc.data().lastName;
+  const imageUrls = [];
+
+  // Calculate the total size of all selected images
+  const totalSize = selectedImages.reduce((acc, image) => acc + image.size, 0);
+
+  // Use Promise.all to upload all images simultaneously and get their download URLs
+  const uploadPromises = selectedImages.map((image) => {
+    const imageRef = storageRef.child(`${randomId}/${image.name}`);
+    const uploadTask = imageRef.put(image);
+
+    // Return a Promise that resolves with the download URL and size of the uploaded image
+    return new Promise((resolve, reject) => {
+      uploadTask.on(
+        firebase.storage.TaskEvent.STATE_CHANGED,
+        (snapshot) => {
+          // Calculate the current progress of the upload
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log(`Upload progress: ${progress.toFixed(2)}%`);
+        },
+        (error) => {
+          console.error(error);
+          reject(error);
+        },
+        () => {
+          // When the upload is complete, get the download URL and resolve the Promise
+          uploadTask.snapshot.ref
+            .getDownloadURL()
+            .then((url) => resolve({ url, size: image.size }));
+        }
+      );
     });
-    setSelectedImages([]);
-  };
-  
+  });
+
+  // Wait for all uploads to complete and collect their results
+  const uploadResults = await Promise.all(uploadPromises);
+
+  // Update the progress to 100% once all uploads are complete
+  console.log('Upload progress: 100%');
+
+  // Calculate the total size of all uploaded images
+  const uploadedSize = uploadResults.reduce((acc, result) => acc + result.size, 0);
+
+  db.collection('projects')
+    .doc(randomId)
+    .set({
+      ...inputValues,
+      userId: userId,
+      firstnamedoc: firstName,
+      lastnamedoc: lastName,
+      imageUrls: uploadResults.map((result) => result.url),
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+  setInputValues({
+    firstName: '',
+    lastName: '',
+    age: '',
+    WBC: '',
+    blood: '',
+    gravity: '',
+    ph: '',
+    glu: '',
+    ketone: '',
+    calox1: '0',
+    WBC1: '0',
+    RBC: '0',
+    Sq: '0',
+    Ai: '1',
+    IDcard: '',
+  });
+
+  setSelectedImages([]);
+
+  // Redirect to "/result" when the submission is complete
+  window.location.href = '/result';
+};
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setInputValues({
       ...inputValues,
-      [name]: name === 'age' || name === 'WBC' || name === 'gravity' || name === 'ph' || name === 'glu' || name === 'calox1' || name === 'WBC1' || name === 'RBC' || name === 'IDcard' ? parseInt(value) : value,
+      [name]: name === 'age' || name === 'WBC' || name === 'gravity' || name === 'ph' || name === 'glu' || name === 'calox1' || name === 'WBC1' || name === 'RBC' || name === 'IDcard' ? parseFloat(value) : value,
     });
   };
 
   const handleImageChange = (e) => {
-    const files = Array.from(e.target.files).slice(0, 15); // limit selected files to maximum of 15
-    setSelectedImages(files);
+    const files = e.target.files;
+    if (files.length < 15) {
+      alert('Please select at least 15 images');
+      return;
+    }
+    setSelectedImages([...selectedImages, ...files]);
   };
+
+
+  const validate = (values) => {
+    const errors = {};
+    if (values.images.length > 15) {
+      errors.images = 'Please upload at 15 images';
+    }
+    return errors};
+  
+  
 
   return (
 
-    <form  className="formhigh" onSubmit={handleSubmit}>
+    <form  className=" font formhigh center" onSubmit={handleSubmit}>
       
-      <h1 className='textADD'>เพิ่ม</h1>
-      <h1 className='textADD1' >ผู้เข้ารับการตรวจ</h1>
+ 
+      <h1 className='textADD' >เพิ่มผู้เข้ารับการตรวจ </h1>
      
-      <div  >
+      <div style={{marginLeft:"30vh"}}   >
       <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
-        <label htmlFor="IDcard">IDcard</label>
+        <label className='center'  htmlFor="IDcard">IDcard</label>
         <input 
-        
+      
           id="IDcard"
           type="number"
           name="IDcard"
           value={inputValues.IDcard}
           onChange={handleInputChange}
+          required
         />
       </div>
       <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
@@ -131,6 +194,7 @@ const Addp = () => {
           name="firstName"
           value={inputValues.firstName}
           onChange={handleInputChange}
+          required
         />
       </div>
       <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
@@ -141,6 +205,7 @@ const Addp = () => {
           name="lastName"
           value={inputValues.lastName}
           onChange={handleInputChange}
+          required
         />
       </div>
 
@@ -151,6 +216,7 @@ const Addp = () => {
  name="age"
  value={inputValues.age}
  onChange ={handleInputChange}
+ required
         />
        </div>
 
@@ -189,6 +255,7 @@ const Addp = () => {
   <input
     id="ph"
     type="number"
+    step="0.1"
     name="ph"
     value={inputValues.ph}
     onChange={handleInputChange}
@@ -216,34 +283,36 @@ const Addp = () => {
 </div>
 </div>
 
-<p >** Images ( 15 ภาพที่ได้จากกล้องจุลทรรศ์ ):</p>
-<div className='left' >
-<p style={{textAlign:"Right",width:"400px"}}>อัปโหลดรูปภาพที่นี่:</p>
-<div className='inputimage' style={{textAlign: "center", border: "2px dotted #1776CF", padding: "20px",width: "600px",height:"400px",marginRight: "-1000px"}}>
-    <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
-        <input 
-            id="images"
-            type="file"
-            name="images"
-            accept="image/*"
-            multiple={true}
-            onChange={(e) => handleImageChange(e)}
-            style={{display: "none"}}
-        />
-        <label htmlFor="images" style={{cursor: "pointer"}}>
-            <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
-                <i className="fas fa-cloud-upload-alt fa-3x" style={{color: "#1776CF"}}></i>
-                <p style={{color: "#1776CF"}}>Drag and drop files or click to select files</p>
-            </div>
-            </label>
-    </div>
-</div>
+<p className='left' style={{marginLeft:"30vh"}}   >** อัปโหลดรูปภาพที่นี่ : ( 15 ภาพที่ได้จากกล้องจุลทรรศ์ ):</p>
 <br></br>
-<button type="submit" style={{borderRadius:"10px", backgroundColor: "#1776CF", width: "100px", color: "white"}}>
-    Submit
+<div className='right' style={{marginRight:"150vh",marginTop:"10vh"}}>
+
+<div className='inputimage' style={{textAlign: "center", border: "2px dotted #1776CF", padding: "20px",width: "600px",height:"400px",marginRight: "-2000px"}}>
+  <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
+  <input 
+  id="images"
+  type="file"
+  name="images"
+  accept="image/*"
+  required
+  multiple={true}
+  onChange={(e) => handleImageChange(e)}
+  
+/>
+
+
+  </div>
+</div>
+
+<br></br>
+<button type="submit"  style={{borderRadius:"10px", backgroundColor: "#1776CF", width: "100px", color: "white",marginRight:"1vh"}} >
+  
+<a  className="font"  style={{ color: "white"}}>  Submit</a>
+ 
 </button>
 
  </div>
+
 
 
 </form>

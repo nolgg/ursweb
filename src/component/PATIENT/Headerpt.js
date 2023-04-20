@@ -58,8 +58,8 @@ function Headerp() {
   }, [currentUser, db]);
 
   return (
-    <div className="header" style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>
-  <div className="container">
+    <div className="font header" style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>
+  <div className="font container">
     <div className="header-con z-depth-0 fixed-top">
       <div className="logo-container" style={{ marginLeft: "-100px", marginTop: '10px' }}>
         <a href="/">
@@ -70,24 +70,24 @@ function Headerp() {
         {currentUser ? (
           <>
             <li className="menu-link" onClick={closeMobileMenu}>
-              <a href="/Resultpatient" className="textinmenu">ผลการตรวจ</a>
+              <a href="/Resultpatient" className="textinmenu" style={{textAlign:"center",marginLeft:"30px"}}>ผลการตรวจ</a>
             </li>
            
             <li className="menu-link" onClick={handleLogout}>
-              <a>ออกจากระบบ</a>
+              <a style={{textAlign:"center",marginLeft:"30px"}}>ออกจากระบบ</a>
             </li>
 
-            <li onClick={closeMobileMenu} className="btn btn-floating" style={{ borderRadius: "15px"}}>
-              <a href="/profile" style={{ textAlign: "center", width: "100px", marginLeft: "10px" }}>{userInitials}</a>
+            <li onClick={closeMobileMenu} className="btn btn-floating" style={{ borderRadius: "15px",marginLeft:"30px"}}>
+              <a href="/profile" style={{textAlign:"center",width:"100px",marginLeft:"30px"}}>{userInitials}</a>
             </li>
           </>
         ) : (
             <>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="/signin">เข้าสู่ระบบ</a>
+              <li className="font menu-link" onClick={closeMobileMenu}>
+                <a href="/signin" style={{textAlign:"center",marginLeft:"30px"}}>เข้าสู่ระบบ</a>
               </li>
               <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="/signup">สมัครสมาชิก</a>
+                <a href="/signup" style={{textAlign:"center",marginLeft:"30px"}}>สมัครสมาชิก</a>
               </li>
             </>
           )}

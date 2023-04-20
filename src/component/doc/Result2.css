@@ -10,9 +10,10 @@
     background-color: #ffffff;
     border-radius: 5px;
     padding: 20px;
-    width: 60%;
+    width: 150%;
     
   }
+  .font{font-family: 'prompt';}
   
   .result-list h2 {
     margin-bottom: 10px;
@@ -36,7 +37,7 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 60%;
+    width: 150%;
   }
   
   .back-button {
@@ -78,7 +79,9 @@
     margin-bottom: 10px;
   }
 
-
+  .headmo{
+    padding-left: 40vh;
+  }
   
  
   

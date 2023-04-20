@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }) => {
     return (
       <>
         <center style={{ margin: "50px" }}>
-          <img src={Logo} className="mt-2" />
+          <img src={Logo} className="mt-2" style={{ height: "500px"}}/>
           <div style={{ fontSize: "30px" }}>
             <div className="spinner-border mr-3" role="status"></div>
             Loading...

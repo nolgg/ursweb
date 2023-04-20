@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import firebase from 'firebase/compat/app';
+import firebase from "../../fbConfig.js";
 import 'firebase/compat/auth';
+import 'firebase/compat/app'
 import './Signup.css';
 import 'firebase/compat/firestore';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -16,28 +18,49 @@ const SignUp = () => {
   const firestore = firebase.firestore();
   
 
-  const handleSignUp = async (e) => {
-      e.preventDefault();
-    
-      if (password !== confirmPassword) {
-        alert("Passwords don't match");
-        return;
-      }
-    
-      try {
-        const authResult = await firebase.auth().createUserWithEmailAndPassword(email, password);
-        const userUid = authResult.user.uid;
-        await firestore.collection('users').doc(userUid).set({
-          firstName: FirstName,
-          lastName: LastName,
-          IDcard: parseInt(IDcard),
-          initials: FirstName[0] + LastName[0],
-        });
-        console.log("Login succec"); // replace this with the URL to navigate to after successful signup
-      } catch (error) {
-        console.error(error);
-      }
-    };
+
+const handleSignUp = async (e) => {
+  e.preventDefault();
+
+  if (password !== confirmPassword) {
+    alert("Passwords don't match");
+    return;
+  }
+
+  try {
+    const authResult = await firebase.auth().createUserWithEmailAndPassword(email, password);
+    const userUid = authResult.user.uid;
+    await firestore.collection('users').doc(userUid).set({
+      firstName: FirstName,
+      lastName: LastName,
+      IDcard: parseInt(IDcard),
+      initials: FirstName[0] + LastName[0],
+    });
+    console.log("Login successful");
+
+    // Show Swal pop-up for successful sign up
+    Swal.fire({
+      title: "Sign Up Successful",
+      icon: "success",
+      text: "You have successfully signed up!",
+      confirmButtonText: "OK",
+    }).then(() => {
+      navigate("/") // replace this with the URL to navigate to after successful signup
+    });
+
+  } catch (error) {
+    console.error(error);
+
+    // Show Swal pop-up for error
+    Swal.fire({
+      title: "Sign Up Failed",
+      icon: "error",
+      text: error.message,
+      confirmButtonText: "OK",
+    });
+  }
+};
+
   
 
   return (
@@ -47,7 +70,8 @@ const SignUp = () => {
       <br></br>
       <br></br>
       <br></br>
-        <h4 className='Login-text' style={{ fontSize: '40px', marginTop: '250px', marginRight: '475px' }}>
+      <div className='font'>
+        <h4 className='Login-text' style={{ fontSize: '40px', marginTop: '135px', marginRight: '305px' }}>
           Welcome
         </h4>
         <form onSubmit={handleSignUp}>
@@ -87,15 +111,16 @@ const SignUp = () => {
             <label for='confirmPassword'>Confirm Password</label>
           </div>
 
-          <button type='submit'className='btn btn blue lighten-1 z-depth-1' style={{ marginTop: '15px', color: 'white', borderRadius: '20px',marginRight: '215px',background:'' }}>
+          <button type='submit'className='btn btn blue lighten-1 z-depth-1' style={{ marginTop: '15px', color: 'white', borderRadius: '20px',marginRight: '150px',background:'' }}>
             
-            <a href='/signin'>Sign Up</a>
+            <a style={{ color: 'white' }}>Sign Up</a>
             
             </button>
           <div className='text' style={{ fontSize: '12px', marginTop: '25px', color: 'gray' }}>
           ALREADY HAVE AN ACCOUNT?   <a href='/signin'>  Log In </a>
           </div>
         </form>
+        </div>
       </div>
     </body>
   );

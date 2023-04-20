@@ -4,8 +4,6 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/app'
 import Swal from 'sweetalert2';
-import bg from './pp.png';
-import lg from './22.png';
 import './Login.css';
 import { AuthContext } from './../Atuh.js';
 import firebase from '../../fbConfig.js';
@@ -55,12 +53,14 @@ function Login() {
         <br></br>
         <br></br>
         <br></br>
-          <h4 className='Login-text' style={{ fontSize: '40px', marginTop: '25%', marginRight: '500px' }}>
+        
+          <h4 className=' Login-text' style={{ fontSize: '40px', marginTop: '25%', marginRight: '470px' }}>
             Welcome
           </h4>
-          <h5 className='Login-text' style={{ fontSize: '15px', marginRight: '470px' ,width:'10%'}}>
-            Sign In
+          <h5 className='Login-text' style={{ fontSize: '15px', marginRight: '480px' ,width:'10%'}}>
+           
           </h5>
+          
           <form onSubmit={handleLogin} className='Login-text2' style={{ marginRight: '225px' }}>
             <div className='row'>
               <div className='row'>
@@ -91,6 +91,7 @@ function Login() {
           </form>
           <div className='text' style={{ fontSize: '12px', marginTop: '25px', color: 'gray' }}>
             DON’T HAVE ACCOUNT?<a href='/signup'>Signup Now</a>
+       
           </div>
         </div>
       </div>

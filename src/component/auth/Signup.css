@@ -4,11 +4,12 @@
 }
 
 .SignUp-bg {
-  height: 100vh;
-  background: url(/src/component/auth/38.png) no-repeat;
+  height: 130vh;
+  background: url(/src/component/auth/91.png) repeat;
   background-size: cover;
   
 }
+.font{font-family: 'prompt';}
 
 .SignUp-con {
   display: flex;

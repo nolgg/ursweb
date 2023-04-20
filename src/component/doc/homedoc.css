@@ -2,7 +2,7 @@
   height: max-content;
 }
 
-
+.font{font-family: 'prompt';}
 .container {
   max-width: 1500px;
   height: 2000px;
@@ -21,7 +21,7 @@
 }
 .homedoc-bg1 {
     height: 100vh;
-    background: url(/src/component/doc/76.png) no-repeat;
+    background: url(/src/component/doc/83.png) no-repeat;
     background-size: 1300px;
     overflow: hidden;
     background-position-x: center;
@@ -32,7 +32,7 @@
 
   .homedoc-bg2 {
     height: 200vh;
-    background: url(/src/component/doc/67.png) no-repeat ;
+    background: url(/src/component/doc/84.png) no-repeat ;
     background-size: 1300px;
     overflow: hidden;
     background-position-x: center;

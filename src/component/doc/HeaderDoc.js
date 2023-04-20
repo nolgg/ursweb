@@ -60,7 +60,7 @@ function HeaderDoc() {
   }, [currentUser, db]);
 
   return (
-    <div className="header" style={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}}>
+    <div className="font header" style={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}}>
       <div className="container">
         <div className="header-con z-depth-0 fixed-top">
           <div className="logo-container"  style={{marginLeft: "-100px",marginTop: '10px'}}>
@@ -70,16 +70,20 @@ function HeaderDoc() {
             {currentUser ? (
               <>
                 <li className="menu-link" onClick={closeMobileMenu}>
-                  <a href="/create"> เพิ่มผู้เข้ารับการตรวจ </a>
+                  <a className="font" href="/create" style={{textAlign:"center",marginLeft:"30px"}} > เพิ่มผู้เข้า</a>
+                  <br></br>
+                  <a className="font" href="/create" style={{textAlign:"center",marginLeft:"30px"}} > รับการตรวจ </a>
                 </li>
                 <li className="menu-link" onClick={closeMobileMenu}>
-                  <a href="/Result"> รายชื่อผู้เข้ารับการตรวจ </a>
+                  <a className="font" href="/Result" style={{textAlign:"center",marginLeft:"30px"}} > รายชื่อผู้เข้ารับ</a>
+                  <br></br>
+                  <a className="font" href="/Result" style={{textAlign:"center",marginLeft:"30px"}} > การตรวจ </a>
                 </li>
                 <li className="menu-link" onClick={handleLogout}>
-                  <a> ออกจากระบบ </a>
+                  <a className="font" style={{textAlign:"center",marginLeft:"30px"}}> ออกจากระบบ </a>
                 </li>
-                <li onClick={closeMobileMenu} className="btn btn-floating #ffc107 amber" style={{borderRadius:"15px"}}>
-                  <a href="/profile"  style={{textAlign:"center",width:"100px",marginLeft:"10px"}} >{userInitials}</a>
+                <li onClick={closeMobileMenu} className="btn btn-floating #ffc107 amber" style={{borderRadius:"15px",marginLeft:"30px"}}>
+                  <a className="font" href="/profile"  style={{textAlign:"center",width:"10px",marginLeft:"30px"}} >{userInitials}</a>
                 </li>
                
               </>

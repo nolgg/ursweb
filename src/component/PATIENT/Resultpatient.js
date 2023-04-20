@@ -6,6 +6,10 @@ import { AuthContext, useAuth } from "../Atuh";
 import เสี่ยงต่ำ from "./imges/เสี่ยงต่ำ.png";
 import เสี่ยงสูง from "./imges/เสี่ยงสูง.png";
 import non from "./imges/ไม่มีความเสี่ยง.png";
+import { Link } from 'react-router-dom';
+import pic1 from './86.png'
+import pic2 from './87.png'
+
 
 const Resultpatient = () => {
   const [projects, setProjects] = useState([]);
@@ -67,7 +71,7 @@ const Resultpatient = () => {
       : "No doctor comment";
 
   return (
-    <div className="result-container">
+    <div className="font result-container">
       {!showMaxPage ? (
         <div className="result-list">
           <h2>ประวัติการเข้ารับการตรวจวิเคราะห์ความเสี่ยง</h2>
@@ -84,7 +88,7 @@ const Resultpatient = () => {
               </p>
             </div>
             <div>
-              <p style={{ color: "gray", textAlign: "Right", width: "930px" }}>
+              <p style={{ color: "gray", textAlign: "Right", width: "170vh" }}>
                 วันที่ตรวจ
               </p>
             </div>
@@ -109,8 +113,8 @@ const Resultpatient = () => {
           </ul>
         </div>
       ) : (
-        <div className=" result-details">
-          <div className="center left">
+        <div className=" ">
+          <div className=" left">
             <h1>ผลการตรวจวิเคราะห์ความเสี่ยง</h1>
             <p>เปอร์เซ็นต์ความเสี่ยงในการเกิดโรคนิ่ว</p>
             {selectedProject.result <= 50 ? (
@@ -140,7 +144,38 @@ const Resultpatient = () => {
                 มีความเสี่ยงต่ำ{" "}
               </p>
             )}
-            <h3>{selectedProject.result} %</h3>
+           <h3> {selectedProject.result !== undefined ? (
+           <h3>
+            {selectedProject.result <= 50 ? (
+              <p
+                className="my-2"
+                style={{
+                  color: "green",
+                  fontSize: "35px",
+                  marginTop: "65px",
+                }}
+              >
+             {selectedProject.result}%
+              </p>
+            ) : selectedProject.result >= 70 ? (
+              <p
+                className="my-2"
+                style={{
+                  color: "red",
+                  fontSize: "35px",
+                  marginTop: "65px",
+                }}
+              >
+              {selectedProject.result}%
+              </p>
+            ) : (
+              <p className="my-2" style={{ color: "orange", fontSize: "35px" }}>
+               {selectedProject.result}%
+              </p>
+            )}</h3>
+            ) : (
+           <div>Loading... Please wait</div>
+             )}</h3>
 
             {selectedProject.result <= 50 ? (
               <img src={non} />
@@ -153,7 +188,7 @@ const Resultpatient = () => {
 
           <div
             className=" right"
-            style={{ marginTop: "-70vh", marginRight: "35vh" }}
+            style={{ marginTop: "-70vh", marginRight: "3vh" }}
           >
             <p>
               {" "}
@@ -177,12 +212,65 @@ const Resultpatient = () => {
             <br></br>
             <br></br>
             <br></br>
-            <button className="back-button" onClick={handleBackClick}>
+            <button className="font back-button" onClick={handleBackClick}>
               Back to List
             </button>
-          </div>
+            {/* <p className="center"style={{fontSize: '40px',color: '#1776CF'}}>
+          บทความที่เกี่ยวข้อง</p>
+          <div className="font h3da"> */}
+        
+        {/* <div class="row row-cols-5 ">      
+      
+        <div class="col">
+          <a href="#comehere">
+            <img src={pic1} alt="Image 1" class="img-fluid" ></img>
+            
+      
+            
+          </a>
         </div>
+        <div class="col">
+          <a href="#comehere">
+            <img src={pic2} alt="Image 2" class="img-fluid" ></img>
+       
+          </a>
+        </div>
+      
+      
+          </div> */}
+       {/* </div> */}
+          </div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+        
+          <h3 >
+                  
+                   
+                  <button className="font resultpt-btn2" >
+                  <Link  to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%
+                  E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.983141
+                  1,14z/data=!3m1!4b1?hl=th"  >โรงพยาบาลที่ใกล้เคียง</Link>
+                  
+                  <br></br>
+                  <Link  style={{ fontSize:'30px'}}to="https://w
+                  ww.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%
+                  E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%
+                  E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.983
+                  1411,14z/data=!3m1!4b1?hl=th"  >Click Me</Link>
+                 
+                  
+                  </button>
+
+             </h3>
+        </div>
+        
+        
       )}
+      
     </div>
   );
 };

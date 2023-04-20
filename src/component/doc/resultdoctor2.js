@@ -11,6 +11,7 @@ const Result2 = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [comment, setComment] = useState("");
   const { currentUser } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = () => {
     if (comment.trim() !== "") {
@@ -56,6 +57,8 @@ const Result2 = () => {
   const handleProjectClick = (project) => {
     setSelectedProject(project);
     setShowMaxPage(true);
+      setIsLoading(true);
+  setSelectedProject(project);
   };
 
   const handleBackClick = () => {
@@ -74,40 +77,104 @@ const Result2 = () => {
   
 
   return (
-    <div className="result-container">
+    <div className="headmo">
+    <div className="font result-container">
     {!showMaxPage ? (
-      <div style={{ backgroundcolor: "#ffffff", borderradius: '5px', padding: "20px", width:'75%' }}>
+      <div style={{ backgroundcolor: "#ffffff", borderradius: '5px', padding: "20px", width:'117%' }}>
         <h2>รายชื่อผู้เข้ารับการตรวจ</h2>
         <br></br>
         <ul>
           <div>
-            <p style={{ color:'gray', marginRight:'1000px', marginBottom:"-50px" }}>รายชื่อ</p>
+            <p style={{ color:'gray', marginRight:'500px', marginBottom:"-50px" }}>รายชื่อ</p>
           </div>
           <div>
             <p style={{ color:'gray', textAlign:"Right", width:"930px" }}>วันที่ตรวจ</p>
           </div>
+          <br></br>
+          
           {projects.map((project) => (
-            <li key={project.id} className="result-item" onClick={() => handleProjectClick(project)}>
+            <li class="collection-item" key={project.id} className="result-item" onClick={() => handleProjectClick(project)}>
+           
               {project.firstName} {project.lastName}
-              <p style={{textAlign:"right", marginTop:"-27px"}}>{project.timestamp.toDate().toLocaleString("th-TH", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })}</p> 
+              <p class="secondary-content" style={{textAlign:"right", marginTop:"-5px"}}>{project.timestamp.toDate().toLocaleString("th-TH", { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit" })}
+             
+           </p> 
+          
             </li>
           ))}
         </ul>
       </div>
+
         
       ) : (
-        <div className="result-details">
+        <div className="font result-details">
           <button className="back-button" onClick={handleBackClick}>
             Back to List
           </button>
           <div>
             <h2>{selectedProject.firstName}  {selectedProject.lastName}</h2>
+            <p>เปอร์เซ็นต์ความเสี่ยงในการเกิดโรคนิ่ว</p>
+            {selectedProject.result <= 50 ? (
+              <p
+                className="my-2"
+                style={{
+                  color: "green",
+                  fontSize: "35px",
+                  marginTop: "65px",
+                }}
+              >
+                อยู่ในเกณฑ์มาตราฐาน
+              </p>
+            ) : selectedProject.result >= 70 ? (
+              <p
+                className="my-2"
+                style={{
+                  color: "red",
+                  fontSize: "35px",
+                  marginTop: "65px",
+                }}
+              >
+                ความเสี่ยงสูง
+              </p>
+            ) : (
+              <p className="my-2" style={{ color: "orange", fontSize: "35px" }}>
+                มีความเสี่ยงต่ำ{" "}
+              </p>
+            )}
+            <h3> {selectedProject.result !== undefined ? (
+           <h3>
+            {selectedProject.result <= 50 ? (
+              <p
+                className="my-2"
+                style={{
+                  color: "green",
+                  fontSize: "35px",
+                  marginTop: "65px",
+                }}
+              >
+             {selectedProject.result}%
+              </p>
+            ) : selectedProject.result >= 70 ? (
+              <p
+                className="my-2"
+                style={{
+                  color: "red",
+                  fontSize: "35px",
+                  marginTop: "65px",
+                }}
+              >
+              {selectedProject.result}%
+              </p>
+            ) : (
+              <p className="my-2" style={{ color: "orange", fontSize: "35px" }}>
+               {selectedProject.result}%
+              </p>
+            )}</h3>
+            ) : (
+           <div>Loading... Please wait</div>
+             )}</h3>
+             
 
-            <h3>
-              {selectedProject.result} %
-            </h3>
-
-        {/* <h4>{project.result} %</h4> */}
 
         <div>
               {selectedProject.imageUrls && (
@@ -174,14 +241,14 @@ const Result2 = () => {
               <strong> RBC of urine :</strong>
               {selectedProject.RBC}
             </div>
-            <div>
+            <div className="font">
        <label>Comment:</label>
   <input
     type="text"
     value={comment}
     onChange={(e) => setComment(e.target.value)}
   />
-  <button onClick={handleSubmit}>Submit</button>
+  <button className="font" onClick={handleSubmit}>Submit</button>
 </div>
             
           
@@ -189,6 +256,7 @@ const Result2 = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

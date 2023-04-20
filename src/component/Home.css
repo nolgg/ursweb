@@ -12,6 +12,7 @@
     background-position-y: 90px;
     
 }
+.font{font-family: 'prompt';}
 .home-con {
     display: flex;
     align-items: center;

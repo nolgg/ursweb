@@ -1,15 +1,17 @@
 .container {
   max-width: 960px;
   margin: 0 auto;
+  font-family: 'prompt';
 }
 
 .Login-bg {
   height: 100vh;
-  background: url(/src/component/auth/69.png) no-repeat;
+  background: url(/src/component/auth/patient.png) no-repeat;
   background-size: cover;
   overflow: hidden;
+  
 }
-
+.font{font-family: 'prompt';}
 .Login-con {
   display: flex;
   align-items: center;
@@ -19,11 +21,13 @@
 .Login-text {
   color: #1776cf;
   text-align: right;
+  font-family: 'prompt';
 }
 
 .Login-text2 {
   color: #888888;
   text-align: right;
+  font-family: 'prompt';
 }
 
 .Login-btn {

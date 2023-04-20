@@ -90,6 +90,7 @@
     .header {
         padding: 0 2rem;
     }
+    .font{font-family: 'prompt';}
     .menu {
         width: 100%;
         height: auto;

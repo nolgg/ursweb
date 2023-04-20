@@ -7,6 +7,7 @@
     height: 80px;
    
 }
+.font{font-family: 'prompt';}
 .header-con {
     display: flex;
     justify-content: space-between;
@@ -72,7 +73,7 @@
         align-items: center;
         justify-content: center;
         height: 10vw;
-        padding: 10px 0;
+        padding: 15px 0;
     }
     .logo-container{
         margin-top: 0px;

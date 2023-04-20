@@ -6,6 +6,7 @@
     background: #ffffff;
     height: 80px;
 }
+.font{font-family: 'prompt';}
 .header-con {
     display: flex;
     justify-content: space-between;
