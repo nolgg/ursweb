@@ -113,8 +113,8 @@ const Resultpatient = () => {
           </ul>
         </div>
       ) : (
-        <div className=" ">
-          <div className=" left">
+        <div className="center" >
+          <div className=" ">
             <h1>ผลการตรวจวิเคราะห์ความเสี่ยง</h1>
             <p>เปอร์เซ็นต์ความเสี่ยงในการเกิดโรคนิ่ว</p>
             {selectedProject.result <= 50 ? (
@@ -186,83 +186,77 @@ const Resultpatient = () => {
             )}
           </div>
 
-          <div
-            className=" right"
-            style={{ marginTop: "-70vh", marginRight: "3vh" }}
-          >
-            <p>
-              {" "}
-              ผลการตรวจประเมิน
-              <br></br>พบผลึกแคลเซียมมที่มีผลต่อ
-              <br></br>การเกิดโรคนิ่วทั้งหมด
-              <br></br> จำนวน {selectedProject.calox1} ผลึก
-            </p>
+          <div className="stack-container">
+  <div className="right" style={{ marginTop: "-80vh",marginLeft:"150vh",position:"absolute"}}>
+<table>
 
-            <h2 style={{ fontSize: "40px", color: "#1776CF" }}>
-              คำแนะนำจากแพทย์ :
-            </h2>
-            <p class="flow-text">{Commentdoc}</p>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-          
-            <button className="font back-button" onClick={handleBackClick}>
-              Back to List
-            </button>
-            {/* <p className="center"style={{fontSize: '40px',color: '#1776CF'}}>
-          บทความที่เกี่ยวข้อง</p> */}
-          {/* <div className="font h3da"> 
+  <td  style={{ fontSize: "20px", color: "#1776CF"}}>
+  ผลการตรวจประเมิน <br></br>
+      พบผลึกแคลเซียมที่มีผลต่อ <br></br>
+      การเกิดโรคนิ่วทั้งหมด<br></br>
+      จำนวน {selectedProject.calox1} ผลึก
+  </td>
+  
+</table>
+   
+    <br></br>
+
+    <h2 style={{ fontSize: "40px", color: "#1776CF", }}>
+      คำแนะนำจากแพทย์ :
+    </h2>
+    <p class="flow-text">{Commentdoc}</p>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <button className="font back-button" onClick={handleBackClick}>
+      Back to List
+    </button>
+  </div>
+
+ 
+</div>
         
-        <div class="row row-cols-5 ">      
-      
-        <div class="col">
-          <a href="#comehere">
-            <img src={pic1} alt="Image 1" class="img-fluid" ></img>
+        
+<table style={{marginTop:"10vh",marginLeft:"60vh",width:"1000px"}}>
+  <td><img  src={pic1} alt="Image 1"></img></td>
+  <td> <img src={pic2} alt="Image 2" ></img></td>
+</table>
+           
             
       
             
-          </a>
-        </div>
-        <div class="col">
-          <a href="#comehere">
-            <img src={pic2} alt="Image 2" class="img-fluid" ></img>
        
-          </a>
-        </div>
+            
+       
       
       
-          </div> 
-        </div> */}
+             <br></br>
+      <br></br>
+         <h3 style={{ textAlign: "center", marginTop: "120vh" }}>
+    <button class="font resultpt-btn2">
+      <Link
+        to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%
+                E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.9831411,14z/data=!3m1!4b1?hl=th"
+      >
+        โรงพยาบาลที่ใกล้เคียง
+      </Link>
+      <br></br>
+      <Link
+        style={{ fontSize: "30px" }}
+        to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.9831411,14z/data=!3m1!4b1?hl=th"
+      >
+        Click Me
+      </Link>
+    </button>
+  </h3>
           </div>
-          
-        
-          
-        
-          <h3 >
-                  
-                   
-                  <button className="font resultpt-btn2" >
-                  <Link  to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%
-                  E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.983141
-                  1,14z/data=!3m1!4b1?hl=th"  >โรงพยาบาลที่ใกล้เคียง</Link>
-                  
-                  <br></br>
-                  <Link  style={{ fontSize:'30px'}}to="https://w
-                  ww.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%
-                  E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%
-                  E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.983
-                  1411,14z/data=!3m1!4b1?hl=th"  >Click Me</Link>
-                 
-                  
-                  </button>
 
-             </h3>
-        </div>
-        
+          
         
       )}
       
