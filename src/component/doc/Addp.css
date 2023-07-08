@@ -14,15 +14,16 @@
   line-height: 88px;
   color: #1776CF;
 }
+.from{
+  margin-left: 200px;
+}
 
 
 
-
-.input {
+.kk {
   background: #FFFFFF;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.14);
-  border-radius: 35px;
-  align-items: center;
+  background-color:"white";
+  
 }
 
 .medical-form label {
@@ -71,7 +72,13 @@
   border-radius: 10px;
   cursor: pointer;
 }
-
+.l{
+  margin-left:30vh;
+}
+.r{
+  margin-right:150vh;
+  margin-top:10vh;
+}
 .medical-form button[type="submit"]:hover {
   background-color: #0059b3;
 }
@@ -89,3 +96,62 @@
   max-width: 300px;
 }
 
+.dotted{
+ 
+  border: 2px dotted #1776CF ;
+  border-radius: 2%;
+   padding-left: 1px;
+   width: 200px;
+   height: 70px;
+  
+}
+.c{
+  margin-top: 20px ;
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  height: "100%"
+
+}
+
+
+@media screen and (max-width: 480px) {
+  
+  
+.textADD {
+  font-family: 'Prompt';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 88px;
+  color: #1776CF;
+}
+.from{
+  margin-left: 5px;
+}
+.kk {
+  background: #FFFFFF;
+  box-shadow: 0px 4px 8px rgba(120, 120, 120, 0.83);
+  border-radius: 15px;
+
+  align-items: center;
+  background-color:"white";
+  width:"1000px";
+}
+.l{
+  margin-left:3vh;
+}
+.r{
+  margin-right:25vh;
+  margin-top:5vh;
+}
+.b{
+  text-Align: center;
+   border: 2px dotted #1776CF; 
+   padding: 20px;
+   width: 600px;
+   height:400px;
+   margin-right: -2000px;
+}
+
+}

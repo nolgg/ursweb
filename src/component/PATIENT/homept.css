@@ -3,6 +3,7 @@
   margin: 0 auto;
 }
 
+
 .homept-bg {
   height: 1000px;
   background: url(/src/component/PATIENT/74.png) no-repeat;
@@ -162,18 +163,122 @@
   width: 35vh;
   transition: all 0.3s ease;
 }
-
+.h3{
+  align-items: center;
+ margin-top: -80px;
+  padding-left: -20vh;
+  height: 15vh;
+  color: #1776CF;
+  font-size: 8vh;
+}
 
 @media screen and (max-width: 480px) {
-  .homept-text {
-    padding: 0 2rem;
-  }
+
   .homept-bg {
     height: 1000px;
-    background: url(/src/component/PATIENT/59.png) no-repeat;
-    background-size: 500px;
+
+    background: url(/src/component/PATIENT/0.png) no-repeat;
+    background-size: 455px;
     overflow: hidden;
-    background-position-x: -50px;
-    background-position-y: 90px;
+    background-position-x: -40px;
+    background-position-y: 30px;
   }
+
+  .homept-btn {
+    background: #ffffff00;
+    box-sizing: border-box;
+    position: absolute;
+    width: 72px;
+    height: 28px;
+    left: 150px;
+    top: 44vh;
+    border: 3px solid #1776CF;
+    font-size: 100%;
+    border-radius: 44px;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+   border-radius: 63.5px;
+   align-items: center;
+}   
+.homept-bg1 {
+  height: 650px;
+  margin-top: -65vh;
+  background: url(/src/component/PATIENT/00.png) no-repeat;
+  background-size: 410px;
+  overflow: hidden;
+  background-position-x: 0vh;
+  background-position-y: 0vh;
+  
 }
+.homept-bg3 {
+  height: 650px;
+  margin-top: -5vh;
+  background: url(/src/component/PATIENT/000.png) no-repeat;
+  background-size: 410px;
+  overflow: hidden;
+  background-position-x: 0vh;
+  background-position-y: 0vh;
+  
+}
+.h3{
+  align-items: center;
+ margin-top: -20px;
+ padding-right: 55vh;
+  height: 10vh;
+  width: 100vh;
+  color: #1776CF;
+  font-size: 2vh;
+}
+
+.img-fluid{
+  height: 15.5vh;
+  width: 6.5vh;
+  padding-left: 0.5vh;
+  transition: all 0.3s ease;
+}
+
+.img-fluid:hover{
+  box-shadow: #474747;
+  border-radius: 20px;
+  height: 16vh;
+  width: 7vh;
+  transition: all 0.3s ease;
+}
+.h3dc{
+  align-items: center;
+ margin-top: -20px;
+  padding-left: 0vh;
+  height: 100vh;
+}
+.homept-bg4 {
+  height: 500px;
+  background-color:#1776CF;
+  background-size: 1300px;
+  overflow: hidden;
+  background-position-x: 100px;
+  margin-top: -70vh;
+}
+.homept-active {
+  background: #ffffff;
+  left: 0;
+  opacity: 1;
+  z-index: 1;
+  padding-left: 0;
+  align-content: center;
+  transition: 0.5s ease;
+}
+
+.homept-btn2 {
+  position: absolute;
+  width: 300px;
+  height: 80px;
+  left: 50px;
+  top: 2000px;
+  background-color: #F5F5F7;
+  font-size: 50%;
+  margin-top: 200px;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 63.5px;
+  
+}   
+}
+

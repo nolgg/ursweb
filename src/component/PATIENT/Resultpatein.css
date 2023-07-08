@@ -74,19 +74,21 @@
 }
 
 .result-container .back-button {
-  background-color: #4caf50;
+  background-color: #ffffff;
   border: none;
-  border-radius: 4px;
-  color: white;
+  
+  color: rgb(0, 136, 255);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   margin-top: 20px;
   padding: 10px 16px;
 }
 
 .result-container .back-button:hover {
-  background-color: #3e8e41;
+  background-color: #c7e1ff;
 }
+
+
 
 .result-container img {
   max-width: 100%;
@@ -106,6 +108,7 @@
   height: 127px;
   left: 320px;
   top: 250vh;
+  margin-top: 20vh;
   background-color: #f5f5f7;
 
   box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
@@ -132,5 +135,91 @@
 
 .result-list {
   width: 120%;
-  margin-left: 50vh;
+  margin-left: 52vh;
 }
+
+.font3{
+ 
+  text-align: center;
+  margin-left: 10vh;
+  
+}
+
+.font4{
+  
+  text-align: center;
+  margin-left: 10vh;
+}
+
+.font5{
+ 
+  margin-left: 60vh;
+  
+}
+
+
+
+.font6{
+  
+  width: 150vh;
+  margin-left: 80vh;
+  padding-bottom: 20vh;
+  margin-top: 20px;
+  height: fit-content;
+}
+
+.my-2{
+  text-align: left;
+  
+  
+}
+
+.my-3{
+  text-align: right;
+}
+
+.intheright{
+  text-align: left;
+ 
+  width: 50vh;
+}
+
+.ppconfix{
+ 
+  width: 100vh;
+  height: 100vh;
+  margin-left: 90vh;
+  margin-top: -80vh;
+}
+
+@media screen and (max-width: 480px) {
+  
+  .result-container {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .result-container h2 {
+    font-size: 20px;
+  }
+  
+  .result-container li {
+    font-size: 16px;
+  }
+  
+  .result-container li p {
+    font-size: 12px;
+  }
+  
+  .result-container .back-button {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+  
+  .result-list {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  }
+

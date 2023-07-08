@@ -70,20 +70,18 @@ function HeaderDoc() {
             {currentUser ? (
               <>
                 <li className="menu-link" onClick={closeMobileMenu}>
-                  <a className="font" href="/create" style={{textAlign:"center",marginLeft:"30px"}} > เพิ่มผู้เข้า</a>
-                  <br></br>
-                  <a className="font" href="/create" style={{textAlign:"center",marginLeft:"30px"}} > รับการตรวจ </a>
+                  <a className="fonttt" href="/create" style={{textAlign:"center",marginLeft:"30px"}} > เพิ่มผู้เข้ารับการตรวจ</a>
+
                 </li>
                 <li className="menu-link" onClick={closeMobileMenu}>
-                  <a className="font" href="/Result" style={{textAlign:"center",marginLeft:"30px"}} > รายชื่อผู้เข้ารับ</a>
-                  <br></br>
-                  <a className="font" href="/Result" style={{textAlign:"center",marginLeft:"30px"}} > การตรวจ </a>
+                  <a className="fonttt" href="/Result" style={{textAlign:"center",marginLeft:"30px"}} > รายชื่อผู้เข้ารับการตรวจ</a>
+
                 </li>
                 <li className="menu-link" onClick={handleLogout}>
-                  <a className="font" style={{textAlign:"center",marginLeft:"30px"}}> ออกจากระบบ </a>
+                  <a className="fonttt" style={{textAlign:"center",marginLeft:"30px"}}> ออกจากระบบ </a>
                 </li>
                 <li onClick={closeMobileMenu} className="btn btn-floating #ffc107 amber" style={{borderRadius:"15px",marginLeft:"30px"}}>
-                  <a className="font" href="/profile"  style={{textAlign:"center",width:"10px",marginLeft:"30px"}} >{userInitials}</a>
+                  <a className="fonttt" href="/profile"  style={{textAlign:"center",width:"10px",marginLeft:"30px"}} >{userInitials}</a>
                 </li>
                
               </>

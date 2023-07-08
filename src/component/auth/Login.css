@@ -20,8 +20,11 @@
 }
 .Login-text {
   color: #1776cf;
-  text-align: right;
+  text-align: center;
   font-family: 'prompt';
+  font-size: '40px';
+padding-top: 2cm;
+padding-Right: 70vh ;
 }
 
 .Login-text2 {
@@ -31,22 +34,24 @@
 }
 
 .Login-btn {
-  background: #fff;
+  background: #1776cf;
   display: inline-block;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  color: #333;
-  border: 2px solid transparent;
+  color: #ffffff;
+  border: 5px ;
   transition: 0.3s;
   margin-top: 1rem;
-  border-radius: 5px;
+  border-radius: 15px;
+  margin-right: 40vh ;
   text-transform: uppercase;
 }
 .Login-btn:hover {
-  border: 2px solid #fff;
+  border: 2px solid #1776cf;
   background: transparent;
-  color: #fff;
+  color: #1776cf;
 }
+
 
 @media screen and (max-width: 480px) {
   .Login-text {
@@ -54,10 +59,48 @@
   }
   .Login-bg {
     height: 1000px;
-    background: url(/src/component/Group38.png) no-repeat;
-    background-size: 500px;
+    margin-left: 5vh;
+    margin-top: 5vh;
+    background: url(/src/component/auth/59.png) no-repeat;
+    background-size: 30vh;
     overflow: hidden;
-    background-position-x: -50px;
-    background-position-y: 90px;
+ 
   }
+  .Login-text {
+    color: #1776cf;
+    text-align: right;
+    font-family: 'prompt';
+    font-size: '20px';
+    margin-top: 4vh;
+    margin-right: 16vh;
+  
+   
+  }
+  .Login-text2 {
+    color: #888888;
+    text-align: right;
+    font-family: 'prompt';
+    margin-left: 60vh ;
+  }
+  .text{
+    
+    text-align: right;
+    margin-right: 10vh;
+    
+  }
+  .Login-btn {
+    background: #1776cf;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    border: 5px ;
+    transition: 0.3s;
+    margin-top: 1rem;
+    border-radius: 15px;
+    margin-right: 30vh ;
+    text-transform: uppercase;
+  }
+  
+  
 }

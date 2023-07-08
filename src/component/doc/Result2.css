@@ -63,7 +63,12 @@
   .detail-item strong {
     margin-right: 10px;
   }
-  
+  .h{ background-color: "#ffffff";
+     border-radius: '5px';
+      padding: "20px";
+       width:'117%'
+
+  }
   .image-list {
     display: flex;
     flex-wrap: wrap;
@@ -124,4 +129,50 @@
     max-width: 50%;
     max-height: 1000px;
     object-fit: contain;
+  }
+  .d1{
+    color:gray ;
+     text-align:Right ;
+      width:930px ;
+  }
+
+  @media screen and (max-width: 480px) {
+    .d1{
+      color:gray ;
+       text-align:Right ;
+       padding-right: 65vh;
+        width:930px ;
+        padding-top: 0.5vh;
+    }
+  .headmo{
+    padding-left: 50vh;
+  }
+  .result-item {
+    width: 40vh;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  }
+  .result-container li {
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .result-container p {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .result-details {
+    background-color: #ffffff;
+  
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 200px;
+   
+  
+  }
+  
   }

@@ -24,8 +24,8 @@ export const AuthProvider = ({ children }) => {
 
       const db = firebase.firestore();
       const userDocRef = db.collection("users").doc(currentUser.uid);
-      const doc = await userDocRef.get(IDcard);
-      
+      const doc = await userDocRef.get();
+
       if (doc.exists) {
         const userData = doc.data();
         const idCard = userData.IDcard;
@@ -33,11 +33,10 @@ export const AuthProvider = ({ children }) => {
         console.log("User ID card:", idCard);
         return idCard;
       } else {
-        console.log("No such document! shit");
+        console.log("No such document!");
       }
     } catch (error) {
       console.error("Error getting user ID card", error);
-      
     }
   };
 
@@ -46,9 +45,7 @@ export const AuthProvider = ({ children }) => {
       setCurrentUser(user);
       setPending(false);
     });
-  
 
-   
     return () => unsubscribe();
   }, []);
 
@@ -66,10 +63,7 @@ export const AuthProvider = ({ children }) => {
     );
   }
 
-
-  
   return (
-   
     <AuthContext.Provider
       value={{
         currentUser,

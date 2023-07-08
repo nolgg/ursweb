@@ -6,10 +6,9 @@ import { AuthContext, useAuth } from "../Atuh";
 import เสี่ยงต่ำ from "./imges/เสี่ยงต่ำ.png";
 import เสี่ยงสูง from "./imges/เสี่ยงสูง.png";
 import non from "./imges/ไม่มีความเสี่ยง.png";
-import { Link } from 'react-router-dom';
-import pic1 from './86.png'
-import pic2 from './87.png'
-
+import { Link } from "react-router-dom";
+import pic1 from "./86.png";
+import pic2 from "./87.png";
 
 const Resultpatient = () => {
   const [projects, setProjects] = useState([]);
@@ -70,6 +69,8 @@ const Resultpatient = () => {
       ? selectedProject.comments[selectedProject.comments.length - 1].comment
       : "No doctor comment";
 
+  
+
   return (
     <div className="font result-container">
       {!showMaxPage ? (
@@ -88,9 +89,7 @@ const Resultpatient = () => {
               </p>
             </div>
             <div>
-              <p style={{ color: "gray", textAlign: "Right", width: "170vh" }}>
-                วันที่ตรวจ
-              </p>
+              <p className="d1">วันที่ตรวจ</p>
             </div>
             {projects.map((project) => (
               <li
@@ -113,20 +112,23 @@ const Resultpatient = () => {
           </ul>
         </div>
       ) : (
-        <div className="center" >
-          <div className=" ">
-            <h1>ผลการตรวจวิเคราะห์ความเสี่ยง</h1>
-            <p>เปอร์เซ็นต์ความเสี่ยงในการเกิดโรคนิ่ว</p>
+        <div className="" style={{marginLeft:"0px"}}>
+          <div className="font5">
+            <button className="font back-button" onClick={handleBackClick}>
+              Back to List
+            </button>
+            <h1 className="font4" >ผลการตรวจวิเคราะห์ความเสี่ยง</h1>
+            <p className="font3">เปอร์เซ็นต์ความเสี่ยงในการเกิดโรคนิ่ว</p>
             {selectedProject.result <= 50 ? (
               <p
                 className="my-2"
                 style={{
                   color: "green",
                   fontSize: "35px",
-                  marginTop: "65px",
-                }}
-              >
+                  marginTop: "65px", }}>
+
                 อยู่ในเกณฑ์มาตราฐาน
+
               </p>
             ) : selectedProject.result >= 70 ? (
               <p
@@ -144,39 +146,46 @@ const Resultpatient = () => {
                 มีความเสี่ยงต่ำ{" "}
               </p>
             )}
-           <h3> {selectedProject.result !== undefined ? (
-           <h3>
-            {selectedProject.result <= 50 ? (
-              <p
-                className="my-2"
-                style={{
-                  color: "green",
-                  fontSize: "35px",
-                  marginTop: "65px",
-                }}
-              >
-             {selectedProject.result}%
-              </p>
-            ) : selectedProject.result >= 70 ? (
-              <p
-                className="my-2"
-                style={{
-                  color: "red",
-                  fontSize: "35px",
-                  marginTop: "65px",
-                }}
-              >
-              {selectedProject.result}%
-              </p>
-            ) : (
-              <p className="my-2" style={{ color: "orange", fontSize: "35px" }}>
-               {selectedProject.result}%
-              </p>
-            )}</h3>
-            ) : (
-           <div>Loading... Please wait</div>
-             )}</h3>
-
+            <h3>
+              {" "}
+              {selectedProject.result !== undefined ? (
+                <h3>
+                  {selectedProject.result <= 50 ? (
+                    <p
+                      className="my-2"
+                      style={{
+                        color: "green",
+                        fontSize: "100px",
+                        marginTop: "65px",
+                      }}
+                    >
+                      {selectedProject.result.toString().slice(0, 5)}%
+                    </p>
+                  ) : selectedProject.result >= 70 ? (
+                    <p
+                      className="my-2"
+                      style={{
+                        color: "red",
+                        fontSize: "100px",
+                        marginTop: "65px",
+                      }}
+                    >
+                      {selectedProject.result.toString().slice(0, 5)}%
+                    </p>
+                  ) : (
+                    <p
+                      className="my-2"
+                      style={{ color: "orange", fontSize: "100px", paddingLeft:"20vh" }}
+                    >
+                      {selectedProject.calox1.toString().slice(0, 2)}%
+                    </p>
+                  )}
+                </h3>
+              ) : (
+                <div>Loading... Please wait</div>
+              )}
+            </h3>
+                <div className="picture">
             {selectedProject.result <= 50 ? (
               <img src={non} />
             ) : selectedProject.result >= 70 ? (
@@ -184,82 +193,69 @@ const Resultpatient = () => {
             ) : (
               <img src={เสี่ยงต่ำ} />
             )}
-          </div>
+            </div>
 
-          <div className="stack-container">
-  <div className="right" style={{ marginTop: "-80vh",marginLeft:"150vh",position:"absolute"}}>
-<table>
 
-  <td  style={{ fontSize: "20px", color: "#1776CF"}}>
-  ผลการตรวจประเมิน <br></br>
-      พบผลึกแคลเซียมที่มีผลต่อ <br></br>
-      การเกิดโรคนิ่วทั้งหมด<br></br>
-      จำนวน {selectedProject.calox1} ผลึก
-  </td>
-  
-</table>
-   
-    <br></br>
+            <div className="ppconfix">
+            
 
-    <h2 style={{ fontSize: "40px", color: "#1776CF", }}>
-      คำแนะนำจากแพทย์ :
-    </h2>
-    <p class="flow-text">{Commentdoc}</p>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-
-    <button className="font back-button" onClick={handleBackClick}>
-      Back to List
-    </button>
-  </div>
-
- 
-</div>
-        
-        
-<table style={{marginTop:"10vh",marginLeft:"60vh",width:"1000px"}}>
-  <td><img  src={pic1} alt="Image 1"></img></td>
-  <td> <img src={pic2} alt="Image 2" ></img></td>
-</table>
+              
+                <td style={{ fontSize: "20px", color: "#1776CF" , textAlign:"center", width:"1000px"}} className="my-3">
+                  ผลการตรวจประเมิน <br></br>
+                  พบผลึกแคลเซียมที่มีผลต่อ <br></br>
+                  การเกิดโรคนิ่วทั้งหมด<br></br>
+                  จำนวน  {selectedProject.calox1.toString().slice(0, 2)} ผลึก
+                </td>
            
-            
-      
-            
-       
-            
-       
-      
-      
-             <br></br>
-      <br></br>
-         <h3 style={{ textAlign: "center", marginTop: "120vh" }}>
-    <button class="font resultpt-btn2">
-      <Link
-        to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%
-                E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.9831411,14z/data=!3m1!4b1?hl=th"
-      >
-        โรงพยาบาลที่ใกล้เคียง
-      </Link>
-      <br></br>
-      <Link
-        style={{ fontSize: "30px" }}
-        to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.9831411,14z/data=!3m1!4b1?hl=th"
-      >
-        Click Me
-      </Link>
-    </button>
-  </h3>
-          </div>
 
+              <br></br>
+
+              <h2 style={{ fontSize: "40px", color: "#1776CF" }}>
+                คำแนะนำจากแพทย์ :
+              </h2>
+              <p class="flow-text">{Commentdoc}</p>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+              <br></br>
+            </div>
           
-        
+
+
+          </div>
+          <table
+            className="font6"
+          >
+            <td>
+              <img src={pic1} alt="Image 1"></img>
+            </td>
+            <td>
+              <img src={pic2} alt="Image 2"></img>
+            </td>
+          </table>
+          
+          <br></br>
+          <br></br>
+          <br></br>
+          <h3 style={{ textAlign: "center"}} >
+            <button class="font resultpt-btn2">
+              <Link to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950202,98.9306103,12z/data=!3m1!4b1?hl=th">
+                โรงพยาบาลที่ใกล้เคียง
+              </Link>
+              <br></br>
+              <Link
+                style={{ fontSize: "3vh" }}
+                to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950202,98.9306103,12z/data=!3m1!4b1?hl=th"
+              >
+                Click Me
+              </Link>
+            </button>
+          </h3>
+          </div>
       )}
-      
     </div>
   );
 };

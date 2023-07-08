@@ -54,18 +54,15 @@ function Login() {
         <br></br>
         <br></br>
         
-          <h4 className=' Login-text' style={{ fontSize: '40px', marginTop: '25%', marginRight: '470px' }}>
+          <h4 className=' Login-text'>
             Welcome
           </h4>
-          <h5 className='Login-text' style={{ fontSize: '15px', marginRight: '480px' ,width:'10%'}}>
-           
-          </h5>
           
-          <form onSubmit={handleLogin} className='Login-text2' style={{ marginRight: '225px' }}>
+          <form onSubmit={handleLogin} className='Login-text2' style={{ marginRight: '22.5vh', width:"32vh" }}>
             <div className='row'>
               <div className='row'>
                 <div className='input-field col s12'>
-                  <input id='email' type='email' className='validate' onChange={(e) => setEmail(e.target.value)} />
+                  <input id='email' type='email' className='validate' onChange={(e) => setEmail(e.target.value)} styple={{width:"30px"}}/>
                   <label htmlFor='email'>Email</label>
                 </div>
               </div>
@@ -83,13 +80,14 @@ function Login() {
             </div>
             <button
               type='submit'
-              className='btn btn blue lighten-1 z-depth-1'
-              style={{ marginTop: '15px', color: 'white', borderRadius: '20px',marginRight: '215px' }}
+              className=' Login-btn'
+              
+              
             >
               Login
             </button>
           </form>
-          <div className='text' style={{ fontSize: '12px', marginTop: '25px', color: 'gray' }}>
+          <div className='text' style={{ fontSize: '12px', marginTop: '2vh', color: 'gray' }}>
             DON’T HAVE ACCOUNT?<a href='/signup'>Signup Now</a>
        
           </div>

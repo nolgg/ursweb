@@ -19,7 +19,7 @@ const closeMobileMenu = () => setClick(false);
     return (
            <div className="divmain">
             <h1 className="homedoc-bg" ></h1>
-                    <h1 className="homedoc-bg1"></h1>
+                    <h2 className="homedoc-bg1"></h2>
                       <button className="font homedoc-btn" href="#AboutUs" 
                   ><a>CONTACT US</a> </button>
                   <h1 className="homedoc-bg2">

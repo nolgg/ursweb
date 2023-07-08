@@ -129,11 +129,48 @@ border-radius: 63.5px;
     padding: 0 2rem;
   }
   .homedoc-bg {
-    height: 1000px;
-    background: url(/src/component/doc/55.png) no-repeat;
+    
+    background: url(/src/component/doc/1.png) no-repeat;
+    background-size: 400px;
+    overflow: hidden;
+    background-position-x: center;
+    background-position-y: 0px;
+  }
+  
+  .homedoc-bg1 {
+    
+    background: url(/src/component/doc/2.png) no-repeat ;
     background-size: 500px;
     overflow: hidden;
-    background-position-x: -50px;
-    background-position-y: 90px;
+    margin-left: -2cm;
+    margin-top: -900px;
+    align-items: center;
+   
+    background-position-y: 500px;
   }
+  
+.homedoc-btn {
+  background: #1a87ed;
+  position: absolute;
+  height: 30px;
+  width: 90px;
+  left: 15vh;
+  top: 60vh;
+  border-radius: 2vh;
+  font-size: 9px;
+  border-color: #FFFFFF;
+  margin-top: 5vh;
+  margin-left: 2vh;
+
+}
+
+.homedoc-bg2 {
+ 
+  background: url(/src/component/doc/3.png) no-repeat ;
+  background-size: 400px;
+  overflow: hidden;
+  background-position-x: center;
+  margin-top: -400px;
+  align-items: center;
+}    
 }

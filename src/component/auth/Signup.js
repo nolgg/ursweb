@@ -70,11 +70,17 @@ const handleSignUp = async (e) => {
       <br></br>
       <br></br>
       <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <div className='font'>
-        <h4 className='Login-text' style={{ fontSize: '40px', marginTop: '135px', marginRight: '305px' }}>
+        <h4 className='Signup-text'>
           Welcome
         </h4>
-        <form onSubmit={handleSignUp}>
+        <form onSubmit={handleSignUp} className='formsignup'>
           <div className='row'>
        <div className='input-field col s6'>
         <input id='FirstName' type='text' onChange={(e) => setFirstName(e.target.value)} />

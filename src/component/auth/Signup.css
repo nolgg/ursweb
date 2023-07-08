@@ -9,7 +9,9 @@
   background-size: cover;
   
 }
-.font{font-family: 'prompt';}
+.font{font-family: 'prompt';
+margin-right: 2cm;
+}
 
 .SignUp-con {
   display: flex;
@@ -53,18 +55,41 @@
   color: #fff;
 }
 
+
 @media screen and (max-width: 480px) {
-  .Login-text {
-      padding: 0 2rem;
+  .Signup-text {
+    padding: 0 2rem;
   }
-  .Login-bg {
-      height: 1000px;
-      background: url(/src/component/Group38.png) no-repeat;
-      background-size: 500px;
-      overflow: hidden;
-      background-position-x: -50px;
-      background-position-y: 90px;
-      
+  .SignUp-bg {
+    
+    background: url(/src/component/auth/1.png) no-repeat;
+    background-position-x: left;
+    margin-left: 5vh;
+    margin-top: 5vh;
+    
+  }
+
+
+
+  .Signup-text {
+    color: #1776cf;
+    text-align: center;
+    font-family: 'prompt';
+    font-size: '20px';
+    margin-top: 4vh;
+    width: 30vh;
+    margin-left: -7vh;
+   
+  }
+  .Signup-text2 {
+    color: #888888;
+    text-align: right;
+    font-family: 'prompt';
+    margin-left: 30vh ;
+  }
+  .formsignup{
+    width: 35vh;
+    margin-right: 5vh;
+    
   }
 }
-

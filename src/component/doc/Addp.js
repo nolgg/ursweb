@@ -172,8 +172,8 @@ const handleSubmit = async (e) => {
  
       <h1 className='textADD' >เพิ่มผู้เข้ารับการตรวจ </h1>
      
-      <div style={{marginLeft:"30vh"}}   >
-      <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
+      <div className='from'   >
+      <div className="kk input-field"   >
         <label className='center'  htmlFor="IDcard">IDcard</label>
         <input 
       
@@ -185,7 +185,7 @@ const handleSubmit = async (e) => {
           required
         />
       </div>
-      <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
+      <div className="kk input-field"   >
         <label htmlFor="firstName">First Name:</label>
         <input 
         
@@ -197,7 +197,7 @@ const handleSubmit = async (e) => {
           required
         />
       </div>
-      <div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
+      <div className="kk input-field" >
         <label htmlFor="lastName">Last Name:</label>
         <input
           id="lastName"
@@ -209,7 +209,7 @@ const handleSubmit = async (e) => {
         />
       </div>
 
-      <div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
+      <div  className="kk input-field"  >
         <label htmlFor="age">Age:</label>
         <input id="age"
  type="number"
@@ -220,7 +220,7 @@ const handleSubmit = async (e) => {
         />
        </div>
 
-<div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}} >
+<div  className="kk input-field"   >
   <label htmlFor="WBC">* WBC ( 0 - 500 ) :</label>
   <input
     id="WBC"
@@ -230,7 +230,7 @@ const handleSubmit = async (e) => {
     onChange={handleInputChange}
   />
 </div>
-<div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
+<div  className="kk input-field" >
   <label htmlFor="blood">* Blood ( 0 - 200 ) :</label>
   <input
     id="blood"
@@ -240,7 +240,7 @@ const handleSubmit = async (e) => {
     onChange={handleInputChange}
   />
 </div>
-<div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
+<div  className="kk input-field"  >
   <label htmlFor="gravity">* Specific gravity of urine ( 1 - 1.030 ) : </label>
   <input
     id="gravity"
@@ -250,7 +250,7 @@ const handleSubmit = async (e) => {
     onChange={handleInputChange}
   />
 </div>
-<div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
+<div  className="kk input-field" >
   <label htmlFor="ph">* pH of urine ( 5.0 - 8.5 ) :</label>
   <input
     id="ph"
@@ -261,7 +261,7 @@ const handleSubmit = async (e) => {
     onChange={handleInputChange}
   />
 </div>
-<div  className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
+<div  className="kk input-field"  >
   <label htmlFor="glu">* Glucose of urine ( 0 - 110 ) :</label>
   <input
     id="glu"
@@ -271,7 +271,7 @@ const handleSubmit = async (e) => {
     onChange={handleInputChange}
   />
 </div>
-<div className="input-field"  style={{borderRadius:"20px",backgroundColor:"white", width:"1000px"}}>
+<div className="kk input-field"  >
   <label htmlFor="ketone">* Ketones of urine ( 0 - 16 ) :</label>
   <input
     id="ketone"
@@ -283,12 +283,12 @@ const handleSubmit = async (e) => {
 </div>
 </div>
 
-<p className='left' style={{marginLeft:"30vh"}}   >** อัปโหลดรูปภาพที่นี่ : ( 15 ภาพที่ได้จากกล้องจุลทรรศ์ ):</p>
+<p className='l left'   >** อัปโหลดรูปภาพที่นี่ : ( 15 ภาพที่ได้จากกล้องจุลทรรศ์ ):</p>
 <br></br>
-<div className='right' style={{marginRight:"150vh",marginTop:"10vh"}}>
+<div className='r right' >
 
-<div className='inputimage' style={{textAlign: "center", border: "2px dotted #1776CF", padding: "20px",width: "600px",height:"400px",marginRight: "-2000px"}}>
-  <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>
+<div className='dotted inputimage' >
+  <div className='c' >
   <input 
   id="images"
   type="file"
