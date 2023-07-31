@@ -1,5 +1,4 @@
-
-.Login-bg {
+.SignUp-bg {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,8 +6,8 @@
   background-color: #f7f7f7;
 }
 
-.right {
-  max-width: 500px; 
+.right2 {
+  max-width: 1000px;
   width: 90%;
   padding: 20px;
   background-color: #fff;
@@ -20,7 +19,7 @@
   text-align: center;
 }
 
-.Login-text {
+.Signup-text {
   margin-bottom: 20px;
   font-size: 24px;
   color: #333;
@@ -37,7 +36,8 @@
 
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="number"] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -62,18 +62,6 @@ input:valid ~ label {
   color: #007bff;
 }
 
-.icon-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.icon-container img {
-  width: 80px;
-  height: 100px;
-}
-
-
 button {
   display: block;
   width: 100%;
@@ -97,15 +85,23 @@ button {
   text-align: center;
 }
 
-/* Mobile version styles */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon-container img {
+  width: 80px;
+  height: 110px;
+}
+
 @media (max-width: 768px) {
   .right {
     width: 100%;
   }
 
-  .Login-text {
+  .Signup-text {
     font-size: 20px;
   }
-
-  
 }

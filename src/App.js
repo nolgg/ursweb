@@ -6,6 +6,14 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Login from "./component/auth/Login.js";
 import SignUp from "./component/auth/Signup.js";
 import Addp from "./component/doc/Addp.js";
+import Profile from "./component/profilepage/Profile.js";
+import AddDevice from "./component/doc/adddevice.js";
+
+
+import { Home2 } from "./component/Newcomponent/Home2.js";
+import NavigationBar from "./component/foothead/NavigationBar.js";
+
+
 
 // import Result from "./component/doc/resultdoc.js";
 
@@ -57,6 +65,16 @@ function App() {
             }
           />
           <Route
+            path="/testhome"
+            element={
+              <>
+                
+                <Header />
+                <Home2 />
+              </>
+            }
+          />
+          <Route
             path="/PATIENT"
             element={
               <>
@@ -76,6 +94,15 @@ function App() {
             }
           />
           <Route
+            path="/adddevice"
+            element={
+              <>
+                <Header />
+                <AddDevice />
+              </>
+            }
+          />
+          <Route
             path="/manage"
             element={
               <>
@@ -90,6 +117,14 @@ function App() {
               <>
                 <Header />
                 <Resultpatient />
+              </>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <>
+                <Profile />
               </>
             }
           />

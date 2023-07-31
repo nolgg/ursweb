@@ -6,10 +6,6 @@ import "./Addp.css"
 import 'firebase/compat/storage';
 
 
-
-
-
-
 const Addp = () => {
   const [inputValues, setInputValues] = useState({
     firstName: '',

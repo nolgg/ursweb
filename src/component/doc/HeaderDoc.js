@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { FiCode, FiMenu, FiX } from "react-icons/fi";
-import "./HeaderDoc.css";
-import lg from "../Group52.png";
+import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { AuthContext, useAuth } from "./../Atuh";
 import firebase from "firebase/compat/app";
 import "firebase/firestore";
-import { AuthContext, useAuth } from "./../Atuh";
 import Swal from "sweetalert2";
+import lg from "../Group52.png";
+import "./HeaderDoc.css";
 
 function HeaderDoc() {
   const [click, setClick] = useState(false);
@@ -16,27 +17,26 @@ function HeaderDoc() {
   const closeMobileMenu = () => setClick(false);
 
   const db = firebase.firestore();
-  
+
   const handleLogout = async () => {
     try {
       await logout();
       Swal.fire({
-        icon: 'success',
-        title: 'Logout complete',
+        icon: "success",
+        title: "Logout complete",
         timer: 10000,
-        showConfirmButton: false
+        showConfirmButton: false,
       });
-      window.location.href = '/';
+      window.location.href = "/";
     } catch (error) {
       console.log(error);
       Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: error.message
+        icon: "error",
+        title: "Error",
+        text: error.message,
       });
     }
-  }
-
+  };
 
   useEffect(() => {
     if (currentUser) {
@@ -60,54 +60,65 @@ function HeaderDoc() {
   }, [currentUser, db]);
 
   return (
-    <div className="font header" style={{boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)'}}>
+    <div className="header font">
       <div className="container">
-        <div className="header-con z-depth-0 fixed-top">
-          <div className="logo-container"  style={{marginLeft: "-100px",marginTop: '10px'}}>
-            <a href="/"> <img src={lg} style={{display:'relative' ,width:'150px',}}></img></a>
+        <div className="header-con">
+          <div className="logo-container">
+            <Link to="/">
+              <img src={lg} alt="Logo" />
+            </Link>
           </div>
-          <ul className={click ? "menu active" : "menu"}>
+
+          <nav className={click ? "menu active" : "menu"}>
             {currentUser ? (
               <>
-                <li className="menu-link" onClick={closeMobileMenu}>
-                  <a className="fonttt" href="/create" style={{textAlign:"center",marginLeft:"30px"}} > เพิ่มผู้เข้ารับการตรวจ</a>
-
-                </li>
-                <li className="menu-link" onClick={closeMobileMenu}>
-                  <a className="fonttt" href="/Result" style={{textAlign:"center",marginLeft:"30px"}} > รายชื่อผู้เข้ารับการตรวจ</a>
-
-                </li>
-                <li className="menu-link" onClick={handleLogout}>
-                  <a className="fonttt" style={{textAlign:"center",marginLeft:"30px"}}> ออกจากระบบ </a>
-                </li>
-                <li onClick={closeMobileMenu} className="btn btn-floating #ffc107 amber" style={{borderRadius:"15px",marginLeft:"30px"}}>
-                  <a className="fonttt" href="/profile"  style={{textAlign:"center",width:"10px",marginLeft:"30px"}} >{userInitials}</a>
-                </li>
-               
+                <Link
+                  to="/create"
+                  className="menu-link"
+                  onClick={closeMobileMenu}
+                >
+                  เพิ่มผู้เข้ารับการตรวจ
+                </Link>
+                <Link
+                  to="/Result"
+                  className="menu-link"
+                  onClick={closeMobileMenu}
+                >
+                  รายชื่อผู้เข้ารับการตรวจ
+                </Link>
+                <Link
+                  to="/adddevice"
+                  className="menu-link"
+                  onClick={closeMobileMenu}
+                >
+                  เพิ่มเลขเครื่อง
+                </Link>
+                <span className="menu-link" onClick={handleLogout}>
+                  ออกจากระบบ
+                </span>
+                <Link to="/profile" className="btn btn-floating #ffc107 amber">
+                  {userInitials}
+                </Link>
               </>
             ) : (
               <>
-                <li className="menu-link" onClick={closeMobileMenu}>
-                  <a href="/signin"> เข้าสู่ระบบ </a>
-                </li>
-                <li className="menu-link" onClick={closeMobileMenu}>
-                  <a href="/signup"> สมัครสมาชิก </a>
-                </li>
+                <Link to="/signin" className="menu-link" onClick={closeMobileMenu}>
+                  เข้าสู่ระบบ
+                </Link>
+                <Link to="/signup" className="menu-link" onClick={closeMobileMenu}>
+                  สมัครสมาชิก
+                </Link>
               </>
             )}
-          </ul>
+          </nav>
+
           <div className="mobile-menu" onClick={handleClick}>
-            {click ? (
-              <div className="close-icon"><FiX /></div>
-              ) : (
-              <div className="menu-icon"><FiMenu /></div>
-              )}
-              </div>
-              </div>
-              </div>
-              </div>
-              );
-              }
-  
+            {click ? <FiX /> : <FiMenu />}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default HeaderDoc;

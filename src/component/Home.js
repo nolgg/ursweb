@@ -26,7 +26,7 @@ function Home() {
       db.collection('users').doc(userId).get()
         .then((doc) => {
           if (doc.exists) {
-            console.log(doc.data()); // log the data to check if the doctorstatus field is set correctly
+            console.log(doc.data()); 
             setIsDoctor(doc.data().doctorstatus);
             setUserInitials(`${doc.data().firstName.charAt(0)}${doc.data().lastName.charAt(0)}`);
           } else {

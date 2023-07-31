@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { FiCode, FiMenu, FiX } from "react-icons/fi";
-import './Header.css'
+
 import lg from './Group20.png'
 import { AuthContext } from './Atuh';
 import firebase from 'firebase/compat/app';
