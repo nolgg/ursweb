@@ -12,7 +12,7 @@ function Service() {
   ];
 
   return (
-    <div className="container">
+    <div className="container-service">
       <div className="middle-text">
        บริการของเรา
       </div>
