@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext} from 'react';
-import { FiCode, FiMenu, FiX } from "react-icons/fi";
+import React, { useState, useEffect, useContext } from 'react';
+import { FiCode, FiMenu, FiX } from 'react-icons/fi';
 import './Headerpt.css';
-import lg from '../Group52.png';
+import lg from '../Icon.png';
 import firebase from 'firebase/compat/app';
 import 'firebase/firestore';
 import { AuthContext } from './../Atuh';
@@ -25,7 +25,7 @@ function Headerp() {
         icon: 'success',
         title: 'Logout complete',
         timer: 3000,
-        showConfirmButton: false
+        showConfirmButton: false,
       });
       window.location.href = '/signin';
     } catch (error) {
@@ -33,15 +33,17 @@ function Headerp() {
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: error.message
+        text: error.message,
       });
     }
-  }
+  };
 
   useEffect(() => {
     if (currentUser) {
       const userId = currentUser.uid;
-      db.collection('users').doc(userId).get()
+      db.collection('users')
+        .doc(userId)
+        .get()
         .then((doc) => {
           if (doc.exists) {
             setUserInitials(`${doc.data().initials}`);
@@ -58,51 +60,65 @@ function Headerp() {
   }, [currentUser, db]);
 
   return (
-    <div className="font header" style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)' }}>
-  <div className="font container">
-    <div className="header-con z-depth-0 fixed-top">
-      <div className="logo-container" style={{ marginLeft: "-100px", marginTop: '10px' }}>
-        <a href="/">
-          <img src={lg} style={{ display: 'relative', width: '150px' }} alt="logo" />
-        </a>
-      </div>
-      <ul className={click ? "menu active" : "menu"}>
-        {currentUser ? (
-          <>
-            <li className="menu-link" onClick={closeMobileMenu}>
-              <a href="/Resultpatient" className="textinmenu" style={{textAlign:"center",marginLeft:"30px"}}>ผลการตรวจ</a>
-            </li>
-           
-            <li className="menu-link" onClick={handleLogout}>
-              <a style={{textAlign:"center",marginLeft:"30px"}}>ออกจากระบบ</a>
-            </li>
+    <div className="font header">
+     
+        <div className="header-con">
+          <div className="logo-container">
+            <a href="/">
+              <img src={lg} alt="logo" />
+            </a>
+          </div>
+          <ul className={click ? 'menu active' : 'menu'}>
+            {currentUser ? (
+              <>
+                 <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/" className="textinmenu">
+                    หน้าหลัก
+                  </a>
+                </li>
+               <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/Service" className="textinmenu">
+                    บริการ
+                  </a>
+                </li>
+                <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/About" className="textinmenu">
+                    เกี่ยวกับเรา
+                  </a>
+                </li>
 
-            <li onClick={closeMobileMenu} className="btn btn-floating" style={{ borderRadius: "15px",marginLeft:"30px"}}>
-              <a href="/profile" style={{textAlign:"center",width:"100px",marginLeft:"30px"}}>{userInitials}</a>
-            </li>
-          </>
-        ) : (
-            <>
-              <li className="font menu-link" onClick={closeMobileMenu}>
-                <a href="/signin" style={{textAlign:"center",marginLeft:"30px"}}>เข้าสู่ระบบ</a>
-              </li>
-              <li className="menu-link" onClick={closeMobileMenu}>
-                <a href="/signup" style={{textAlign:"center",marginLeft:"30px"}}>สมัครสมาชิก</a>
-              </li>
-            </>
-          )}
-      </ul>
-      <div className="mobile-menu" onClick={handleClick}>
-        {click ? (
-          <div className="close-icon"><FiX /></div>
-        ) : (
-            <div className="menu-icon"><FiMenu /></div>
-          )}
-      </div>
+                <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/Resultpatient" className="textinmenu">
+                    ผลการตรวจ
+                  </a>
+                </li>
+
+                <li className="menu-link" onClick={handleLogout}>
+                  <a>ออกจากระบบ</a>
+                </li>
+
+                <li onClick={closeMobileMenu} className="btn btn-floating">
+                  <a href="/profile">{userInitials}</a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="font menu-link" onClick={closeMobileMenu}>
+                  <a href="/signin">เข้าสู่ระบบ</a>
+                </li>
+                <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/signup">สมัครสมาชิก</a>
+                </li>
+              </>
+            )}
+          </ul>
+          <div className="mobile-menu" onClick={handleClick}>
+                    {click ? <FiX className="menu-icon" /> : <FiMenu className="menu-icon" />}
+                </div>
+        </div>
+      
     </div>
-  </div>
-</div>
-              );
-              }
-              
-              export default Headerp;
+  );
+}
+
+export default Headerp;

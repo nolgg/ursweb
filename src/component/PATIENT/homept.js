@@ -1,93 +1,95 @@
-import React, { useState, useEffect } from 'react';
-import { FiCode, FiMenu, FiX } from "react-icons/fi";
-import './Headerpt.css';
-import sr from './search.png';
-import pic1 from './1.png'
-import pic2 from './2.png'
-import pic3 from './3.png'
-import pic4 from './4.png'
-import pic5 from './5.png'
-
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './homept.css';
+import Footer from '../foothead/Footer';
+
+import Typewriter from "typewriter-effect";
+import pic from "./urs-middle.png"
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import pic1 from "./1.png"; 
+import pic2 from "./2.png";
+import pic3 from "./3.png";
+import { Carousel } from "./Carousel.jsx";
+
+import carouselData from "./carouselData.json";
+
 
 function Homept() {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click); // Corrected handleClick function
+    
+    return (
+        <div className="container">
 
-  useEffect(() => {
-    const anchors = document.querySelectorAll('a[href^="#"]');
-    anchors.forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  }, []);
-
-  return (
-    <div className="font center">
-      <h1 className="homept-bg"></h1>
-      <h1 className="homept-bg1"></h1>
-      <button
-        className="font center homept-btn"
-        href="/Resultpatient"
-        style={{
-          color: "#1776CF"
-        }}
-      >ที่นี่</button>
-
-      <h2 className="homept-bg3"></h2>
-
-      <div className="font h3dc">
-        <p className="center h3">
-          ถ้าคุณมีอาการอย่างใดอย่างหนึ่งต่อไปนี้<br></br>
-          คุณอาจเสี่ยงเป็นโรคนิ่ว ควรพบแพทย์โดยด่วน
-        </p>
-        <div class="row row-cols-5 ">
-
-          <div class="col">
-            <a href="#comehere">
-              <img src={pic1} alt="Image 1" class="img-fluid"></img>
-            </a>
-          </div>
-          <div class="col">
-            <a href="#comehere">
-              <img src={pic2} alt="Image 2" class="img-fluid"></img>
-            </a>
-          </div>
-          <div class="col">
-            <a href="#comehere">
-              <img src={pic3} alt="Image 3" class="img-fluid"></img>
-            </a>
-          </div>
-          <div class="col">
-            <a href="#comehere">
-              <img src={pic4} alt="Image 4" class="img-fluid"></img>
-            </a>
-          </div>
-          <div class="col">
-            <a href="#comehere">
-              <img src={pic5} alt="Image 5" class="img-fluid "></img>
-            </a>
-          </div>
-
+        <section className="info-section">
+       <div className="text-part">
+        <div className="superword"><h1>ยินดีต้อนรับเข้าสู่</h1>
+        <h1>
+        <Typewriter 
+ 
+        onInit={(typewriter) => {
+         typewriter
+         .typeString("อนาคตที่ดีของชุมชน")
+         .pauseFor(1000)
+         .deleteAll()
+         .typeString("อนาคตที่ดีของทุกคน")
+         .pauseFor(1000)
+         .deleteAll()
+         .typeString("URS")
+         .start();
+       }}
+       />
+       </h1>
+       </div>
+        <p>ระบบตรวจสอบโรคนิ่วและอื่นๆด้วยปัญญาประดิษฐ์ที่ราคาถูกและเป็นมิตรต่อคนไทย </p>
+        <p>โดยเราเป็นองค์กรพันธกิจเพื่อสังคมที่ดีกว่าเดิม โดยเราเสนอทางที่ดีกว่าในการตรวจโรคผ่านปัสสาวะ </p>
+        <p>ซึ่งในปัจจุบันโรงพยาบาลส่วนตำบลไม่สามารถตรวจโรคผ่านทางปัสสาวะและ... </p>
+        <a href='/admin'><button className="start-btn">Let's Get Started</button></a>
+        
+        </div> 
+         <div className="image-part">
+        <img src= {pic} />
         </div>
-      </div>
+        </section> 
 
-      <h3 className="homept-bg4" id="comehere">
-        <div className="homept-active">
+        <section className="hero-section">
+                <h1>เราทำงานอย่างไร?</h1>
+                <Carousel data={carouselData.picall1} />
+                <Link to="/Resultpatient" className="main-btn">Explore Now</Link>
+          </section>
+          
 
-          <button className="font homept-btn2" >
-            <Link to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.9831411,14z/data=!3m1!4b1?hl=th">โรงพยาบาลที่ใกล้เคียง</Link>
-            <br></br>
-            <Link to="https://www.google.com/maps/search/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B9%83%E0%B8%81%E0%B8%A5%E0%B9%89%E0%B8%89%E0%B8%B1%E0%B8%99/@18.7950341,98.9831411,14z/data=!3m1!4b1?hl=th">Click Me</Link>
-          </button>
+          <section className="symptoms-section">
+    <h2>ปัญหาที่เราเล็งเห็น</h2>
+    <p>นี่คือปัญหาที่พบเจอได้จากระบบในปัจจุบันและวิธีแก้ไขปัญหาของเรา</p>
+    
+    <div className="symptoms-grid">
+        <div className="symptom-card">
+            <div className="image-placeholder"><img src={pic}></img></div>
+            <p>Symptom 1 description</p>
         </div>
-      </h3>
+        <div className="symptom-card">
+            <div className="image-placeholder"></div>
+            <p>Symptom 2 description</p>
+        </div>
+        <div className="symptom-card">
+            <div className="image-placeholder"></div>
+            <p>Symptom 3 description</p>
+        </div>
     </div>
-  )
+        </section>
+
+
+            
+
+            <section className="advice-section" id="advice-section">
+                <h2>Immediate Advice</h2>
+                <div className="action-call"> 
+                    <Link to="https://www.google.com/maps/search/..." className="advice-btn">Find Nearby Hospitals</Link>
+                </div>
+            </section>
+            <Footer />
+        </div>
+    )
 }
 
 export default Homept;

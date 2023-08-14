@@ -45,7 +45,7 @@ function Profile() {
 
   return (
     <div className="profile-container">
-      <a href="/">กลับหน้าหลัก</a>
+      <a href="/" className='back to page'>กลับหน้าหลัก</a>
       <div className="profile-header">
         <div className="profile-header-content">
           <div className="profile-image">

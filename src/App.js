@@ -8,6 +8,9 @@ import SignUp from "./component/auth/Signup.js";
 import Addp from "./component/doc/Addp.js";
 import Profile from "./component/profilepage/Profile.js";
 import AddDevice from "./component/doc/adddevice.js";
+import Service from "./component/Service.js";
+import AboutUs from "./component/Aboutus.js";
+import Footer from "./component/foothead/Footer.js";
 
 
 import { Home2 } from "./component/Newcomponent/Home2.js";
@@ -54,6 +57,30 @@ function App() {
               </>
             }
           />
+
+          <Route
+            path="/Service"
+            element={
+              <>
+                <Header />
+                <Service />
+                <Footer />
+              </>
+            }
+          />
+
+            <Route
+            path="/About"
+            element={
+              <>
+                <Header />
+                <AboutUs />
+                <Footer />
+              </>
+            }
+          />
+
+
           <Route
             path="/Doctor"
             element={
@@ -103,7 +130,7 @@ function App() {
             }
           />
           <Route
-            path="/manage"
+            path="/admin"
             element={
               <>
                 <Header />
