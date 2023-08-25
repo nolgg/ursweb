@@ -3,11 +3,9 @@ import "firebase/compat/app"
 import 'firebase/firestore';
 import Homedoc from './doc/homedoc'
 import Homept from './PATIENT/homept';
-import './Home.css';
 import { AuthContext } from './Atuh';
 import firebase from './../fbConfig.js';
-import "./PATIENT/homept.css"
-import "./doc/homedoc.css"
+
 
 
 function Home() {

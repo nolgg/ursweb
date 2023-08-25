@@ -1,133 +1,129 @@
+/* Header Container */
 .header {
-    background: #ffffff;
-    height: 80px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: Arial, sans-serif;
+  position: fixed;  
+  width: 100%;      
+  top: 0;           
+  z-index: 1000;    
+  background-color: #fff; 
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   
-  .container {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  
-  .font {
-    font-family: 'prompt';
-  }
-  
-  .header-con {
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    padding: 0 1rem;
-  }
-  
-  .logo-container a {
-    color: #0022ff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 4rem;
-  }
-  
+}
+
+
+.header-con {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.logo-container {
+  flex: 1;
+  max-width: 100px;
+  margin-top: 0px;
+}
+
+.logo-container img {
+  width: 100%;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-link {
+  padding: 10px;
+}
+
+.menu-link a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.close-icon,
+.menu-icon {
+  font-size: 24px;
+}
+
+/* Checkbox Hack for Mobile Menu */
+.menu-checkbox {
+  display: none;
+}
+
+.menu-checkbox:checked ~ .menu {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-checkbox:checked ~ .menu .menu-link {
+  padding: 15px 0;
+}
+
+.menu-checkbox:checked ~ .menu-icon {
+  display: none;
+}
+
+.menu-checkbox:checked ~ .close-icon {
+  display: block;
+}
+
+body {
+  padding-top: 70px; 
+}
+
+@media screen and (max-width: 1000px) {
   .menu {
-    display: flex;
-    list-style-type: none;
+      display: none;
   }
-  
-  
-  
-  .menu li a {
-    text-decoration: none;
-    color: #0022ff;
-  }
-  
+
   .mobile-menu {
-    display: none;
-    color: #0022ff;
-    font-size: 2rem;
+      display: block;
   }
+
   
-  @media screen and (max-width: 480px) {
-    .menu {
-      position: absolute;
-      top: 80px;
-      left: -100%;
-      opacity: 0;
+  .menu.active {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-      transition: 0.3s ease;
-      z-index: 1;
       background-color: #ffffff;
-    }
-  
-    .menu.active {
-      opacity: 1;
-      pointer-events: auto;
+      position: absolute;
+      top: 50px;
       left: 0;
-    }
-  
-    .menu li {
-      padding-right: 0;
-      margin-bottom: 1rem;
-    }
-  
-    .menu-link {
-      display: block;
+      width: 100%;
       text-align: center;
-      text-decoration: dotted;
-      width: 40vh;
-      height: 50px;
-      padding: 15px 0;
-    }
-  
-    .btn {
-      visibility: collapse;
-      width: 0%;
-    }
-  
-    .logo-container {
-      margin-top: 0px;
-      padding-left: 75px;
-    }
-  
-    .logo-container img {
-      display: relative;
-      height: 65px;
-      width: 180px !important;
-    }
-  
-    .fonttt {
-      text-align: center;
-      text-decoration: dotted;
-      width: 40vh;
-      height: 50px;
-    }
-  
-    .menu-link {
-      margin-left: 11vh;
-      box-shadow: #000000;
-    }
-  
-    .mobile-menu {
-      display: block;
-    }
-  
-    .close-icon,
-    .menu-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #0022ff;
-      color: #ffffff;
-    }
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
-  
+
+  .menu.active .menu-link {
+      padding: 15px 0;
+      width: 100%;
+  }
+}

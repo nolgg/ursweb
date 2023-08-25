@@ -1,4 +1,4 @@
-.container {
+.container-pt {
   font-family: 'Prompt', sans-serif;
   width: 100%;
   max-width: 100%;
@@ -24,9 +24,10 @@
   background-color: #1776CF;
   color: #fff;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   text-decoration: none;
   transition: background-color 0.3s;
+  margin-top: 50px;
 }
 
 .main-btn:hover, .advice-btn:hover {
@@ -70,13 +71,14 @@
 .start-btn {
   margin-top: 1em;
   padding: 10px 20px;
-  border: 2px solid #155a8a;
-  border-radius: 5px;
+  /* border: 2px solid #155a8a; */
+  border-radius: 10px;
   background-color: #1776CF;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
   transition: transform 0.3s, background-color 0.3s;
+  width: 200px;
 }
 
 .app-container {

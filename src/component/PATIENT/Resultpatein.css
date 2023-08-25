@@ -1,225 +1,35 @@
-.result-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-/* Grow */
-.hvr-grow {
-  display: inline-block;
-  vertical-align: middle;
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  transition-duration: 0.3s;
-  transition-property: transform;
-}
-
-.hvr-grow:hover,
-.hvr-grow:focus,
-.hvr-grow:active {
-  transform: scale(1.1);
-}
-.font {
-  font-family: "prompt";
-}
-.result-container {
-  background-color: #ffffff;
-  border-radius: 5px;
-  padding: 23px;
-  width: 75%;
-}
-.h3da {
-  align-items: center;
-  margin-top: 40px;
-  padding-right: -40vh;
-}
-.img-fluid5 {
-  transition: all 0.3s ease;
-}
-
-.result-container h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.result-container ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.result-container li {
-  cursor: pointer;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.result-container li p {
-  color: gray;
-  margin-top: -27px;
-}
-
-.result-container li:first-child div {
-  margin-bottom: -50px;
-}
-
-.result-container li:first-child p {
-  margin-right: 1000px;
-}
-
-.result-container li:last-child {
-  margin-bottom: 0;
-}
-
-.result-container .back-button {
-  background-color: #ffffff;
-  border: none;
-  
-  color: rgb(0, 136, 255);
-  cursor: pointer;
-  font-size: 20px;
-  margin-top: 20px;
-  padding: 10px 16px;
-}
-
-.result-container .back-button:hover {
-  background-color: #c7e1ff;
-}
-
-
-
-.result-container img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
-}
-.resultpt-bg {
-  background-color: #1776cf;
-  background-size: 3vh;
-
-  padding-top: 400vh;
-  align-items: center;
-}
-.resultpt-btn2 {
-  position: absolute;
-  width: 877px;
-  height: 127px;
-  left: 320px;
-  top: 250vh;
-  margin-top: 20vh;
-  background-color: #f5f5f7;
-
-  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
-  border-radius: 63.5px;
-}
-.result-container p {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.result-container h3 {
-  color: #4caf50;
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.result-container p:first-child {
-  margin-top: 20px;
-}
-
-.result-container .my-2 {
-  margin-top: 65px;
-}
-
 .result-list {
-  width: 120%;
-  margin-left: 52vh;
+  width: 100%;
+  max-width: 800px; /* You can adjust this value based on your preference */
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.font3{
- 
+.result-list h2 {
   text-align: center;
-  margin-left: 10vh;
-  
+  margin-bottom: 30px;
 }
 
-.font4{
-  
-  text-align: center;
-  margin-left: 10vh;
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
-.font5{
- 
-  margin-left: 60vh;
-  
+.header-row p {
+  margin: 0;
+  color: gray;
 }
 
-
-
-.font6{
-  
-  width: 150vh;
-  margin-left: 80vh;
-  padding-bottom: 20vh;
-  margin-top: 20px;
-  height: fit-content;
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.my-2{
-  text-align: left;
-  
-  
+.result-item:hover {
+  background-color: #f5f5f5;
 }
-
-.my-3{
-  text-align: right;
-}
-
-.intheright{
-  text-align: left;
- 
-  width: 50vh;
-}
-
-.ppconfix{
- 
-  width: 100vh;
-  height: 100vh;
-  margin-left: 90vh;
-  margin-top: -80vh;
-}
-
-@media screen and (max-width: 480px) {
-  
-  .result-container {
-    width: 100%;
-    padding: 10px;
-  }
-  
-  .result-container h2 {
-    font-size: 20px;
-  }
-  
-  .result-container li {
-    font-size: 16px;
-  }
-  
-  .result-container li p {
-    font-size: 12px;
-  }
-  
-  .result-container .back-button {
-    font-size: 16px;
-    padding: 8px 12px;
-  }
-  
-  .result-list {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  }
-

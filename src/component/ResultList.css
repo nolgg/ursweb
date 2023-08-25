@@ -1,0 +1,56 @@
+/* General Styling */
+.result-list-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: 'Sarabun', sans-serif;
+}
+
+/* Header Styling */
+.header-title, .header-date {
+    color: gray;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.header-title {
+    float: left; /* Aligns to the left */
+    padding-left: 10px;
+}
+
+.header-date {
+    float: right; /* Aligns to the right */
+    padding-right: 10px;
+}
+
+/* Result List Styling */
+.result-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.result-list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-list li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Item content styling */
+.result-list-item-name {
+    color: #333;
+}
+
+.result-list-item-date {
+    color: #555;
+    text-align: right;
+}
+
+

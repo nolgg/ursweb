@@ -1,38 +1,38 @@
-import React, { useState, useEffect, useContext } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
-import { AuthContext, useAuth } from "./../Atuh";
-import firebase from "firebase/compat/app";
-import "firebase/firestore";
-import Swal from "sweetalert2";
-import lg from "../Group52.png";
-import "./HeaderDoc.css";
+import React, { useState, useEffect, useContext } from 'react';
+import { FiCode, FiMenu, FiX } from 'react-icons/fi';
+import './HeaderDoc.css';
+import lg from '../Icon.png';
+import firebase from 'firebase/compat/app';
+import 'firebase/firestore';
+import { AuthContext } from './../Atuh';
+import { useAuth } from './../Atuh';
+import Swal from 'sweetalert2';
 
 function HeaderDoc() {
   const [click, setClick] = useState(false);
-  const [userInitials, setUserInitials] = useState("");
+  const [userInitials, setUserInitials] = useState('');
   const { currentUser } = useContext(AuthContext);
   const { logout } = useAuth();
+  const db = firebase.firestore();
+
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
-  const db = firebase.firestore();
 
   const handleLogout = async () => {
     try {
       await logout();
       Swal.fire({
-        icon: "success",
-        title: "Logout complete",
-        timer: 10000,
+        icon: 'success',
+        title: 'Logout complete',
+        timer: 3000,
         showConfirmButton: false,
       });
-      window.location.href = "/";
+      window.location.href = '/signin';
     } catch (error) {
       console.log(error);
       Swal.fire({
-        icon: "error",
-        title: "Error",
+        icon: 'error',
+        title: 'Error',
         text: error.message,
       });
     }
@@ -41,82 +41,87 @@ function HeaderDoc() {
   useEffect(() => {
     if (currentUser) {
       const userId = currentUser.uid;
-      db.collection("users")
+      db.collection('users')
         .doc(userId)
         .get()
         .then((doc) => {
           if (doc.exists) {
             setUserInitials(`${doc.data().initials}`);
           } else {
-            console.log("User not found");
+            console.log('User not found');
           }
         })
         .catch((error) => {
           console.log(`Error getting user: ${error}`);
         });
     } else {
-      console.log("No user currently logged in");
+      console.log('No user currently logged in');
     }
   }, [currentUser, db]);
 
   return (
-    <div className="header font">
-      <div className="container">
+    <div className="font header">
+     
         <div className="header-con">
           <div className="logo-container">
-            <Link to="/">
-              <img src={lg} alt="Logo" />
-            </Link>
+            <a href="/">
+              <img src={lg} alt="logo" />
+            </a>
           </div>
-
-          <nav className={click ? "menu active" : "menu"}>
+          <ul className={click ? 'menu active' : 'menu'}>
             {currentUser ? (
               <>
-                <Link
-                  to="/create"
-                  className="menu-link"
-                  onClick={closeMobileMenu}
-                >
-                  เพิ่มผู้เข้ารับการตรวจ
-                </Link>
-                <Link
-                  to="/Result"
-                  className="menu-link"
-                  onClick={closeMobileMenu}
-                >
-                  รายชื่อผู้เข้ารับการตรวจ
-                </Link>
-                <Link
-                  to="/adddevice"
-                  className="menu-link"
-                  onClick={closeMobileMenu}
-                >
-                  เพิ่มเลขเครื่อง
-                </Link>
-                <span className="menu-link" onClick={handleLogout}>
-                  ออกจากระบบ
-                </span>
-                <Link to="/profile" className="btn btn-floating #ffc107 amber">
-                  {userInitials}
-                </Link>
+                 <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/" className="textinmenu">
+                    หน้าหลัก
+                  </a>
+                </li>
+               <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/Service" className="textinmenu">
+                    บริการ
+                  </a>
+                </li>
+
+                <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/About" className="textinmenu">
+                    เกี่ยวกับเรา
+                  </a>
+                </li>
+                <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/Service" className="textinmenu">
+                    เพิ่มเคส
+                  </a>
+                </li>
+                <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/Resultpatient" className="textinmenu">
+                    รายชื่อและผลตรวจ
+                  </a>
+                </li>
+
+                <li className="menu-link" onClick={handleLogout}>
+                  <a>ออกจากระบบ</a>
+                </li>
+
+                <li onClick={closeMobileMenu} className="btn btn-floating">
+                  <a href="/profile">{userInitials}</a>
+                </li>
               </>
             ) : (
               <>
-                <Link to="/signin" className="menu-link" onClick={closeMobileMenu}>
-                  เข้าสู่ระบบ
-                </Link>
-                <Link to="/signup" className="menu-link" onClick={closeMobileMenu}>
-                  สมัครสมาชิก
-                </Link>
+                <li className="font menu-link" onClick={closeMobileMenu}>
+                  <a href="/signin">เข้าสู่ระบบ</a>
+                </li>
+                <li className="menu-link" onClick={closeMobileMenu}>
+                  <a href="/signup">สมัครสมาชิก</a>
+                </li>
               </>
             )}
-          </nav>
-
+          </ul>
           <div className="mobile-menu" onClick={handleClick}>
-            {click ? <FiX /> : <FiMenu />}
-          </div>
+                    {click ? <FiX className="menu-icon" /> : <FiMenu className="menu-icon" />}
+                </div>
         </div>
-      </div>
+      
     </div>
   );
 }

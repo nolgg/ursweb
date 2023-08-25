@@ -40,17 +40,16 @@ function Homept() {
         }
       ];
       
-
+ 
 
     return (
-        <div className="app-container">
-        <div className="container">
-
+    <div className="app-container" >
+        <div className="container-pt">
         <section className="info-section">
             <div className="text-part">
                 <div className="superword">
-                    <h1>ยินดีต้อนรับเข้าสู่</h1>
-                    <h1>
+                    <h1 style={{fontWeight:"700"}}>ยินดีต้อนรับเข้าสู่</h1>
+                    <h1 style={{fontWeight:"700"}}>
                         <Typewriter 
                             onInit={(typewriter) => {
                                 typewriter
@@ -66,22 +65,25 @@ function Homept() {
                         />
                     </h1>
                 </div>
-                <p>ระบบตรวจสอบโรคนิ่วและอื่นๆด้วยปัญญาประดิษฐ์ที่ราคาถูกและเป็นมิตรต่อคนไทย </p>
+                <p>ระบบตรวจสอบโรคนิ่วและโรคอื่นๆ ผ่านเทคโนโลยีปัญญาประดิษฐ์ที่เราพัฒนาขึ้นมาด้วยความใส่ใจและความมุ่งมั่นเพื่อประชาชนไทยทุกคน  เราหวังว่าจะเป็นส่วนสำคัญที่ช่วยเสริมสร้างสังคมไทยให้แข็งแรง และสุขภาพดี</p>
                 <a href='/admin'><button className="start-btn">Let's Get Started</button></a>
             </div> 
-            <div className="image-part">
+            <div className="image-part" style={{marginLeft:'100px'}}>
                 <img src={pic} />
             </div>
         </section> 
+            <h1 style={{textAlign:'center',marginTop:'-50px',marginBottom:"50px",fontSize:'46px',fontWeight:" 500",color:"#777"}}>เราทำงานอย่างไร ?</h1>
 
         <section className="hero-section">
-            <h1>เราทำงานอย่างไร?</h1>
+            
             <Carousel data={carouselData.picall1} />
+
+
             <Link to="/Resultpatient" className="main-btn">Explore Now</Link>
         </section>
 
-        <section className="symptoms-section">
-    <h2>ปัญหาที่เราเล็งเห็น</h2>
+        <section className="symptoms-section" style={{marginBottom:"100px"}}>
+    <h2 style={{fontWeight:"500",fontSize:'30px',marginTop:'100px'}}>ปัญหาที่เราเล็งเห็น</h2>
     <p>นี่คือปัญหาที่พบเจอได้จากระบบในปัจจุบันและวิธีแก้ไขปัญหาของเรา</p>
     
     <div className="card-container">

@@ -1,67 +1,66 @@
 .profile-container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 60px;
-    background-color: #ffffff;
-  }
-  
-  .profile-header {
-    background-color: #d1f9ff;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .profile-header-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .profile-image img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .profile-info {
-    text-align: left;
-  }
-  
-  .profile-details {
-    margin-top: 0px;
-    text-align: center;
-    background: #ffe6e6;
-    width: 100%;
-    height: 500px;
-  }
-  
-  .detail-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .detail-label {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .backtopage {
-    color: #1776cf;
-    text-decoration: none;
-    margin-bottom: 20px;
-    display: inline-block;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .profile-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 60px;
+  background-color: #ffffff;
+}
+
+.profile-header {
+  background-color: #d1f9ff;
+  padding: 10px;
+  text-align: center;
+}
+
+.profile-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  text-align: left;
+}
+
+.profile-details {
+  margin-top: 0;
+  text-align: center;
+  background: #ffe6e6;
+  width: 100%;
+  height: 500px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.backtopage {
+  color: #1776cf;
+  text-decoration: none;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+  .profile-container {
       padding: 10px;
-    }
-  
-    .profile-image img {
+  }
+
+  .profile-image img {
       width: 80px;
       height: 80px;
-    }
   }
-  
+}
